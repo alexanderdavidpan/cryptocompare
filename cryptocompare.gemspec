@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "cryptocompare"
   spec.version       = Cryptocompare::VERSION
   spec.authors       = ["Alexander David Pan"]
-  spec.email         = ["ap3809@yp.com"]
+  spec.email         = ["alexanderdavidpan@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{A Ruby gem for communicating with the CryptoCompare API}
+  spec.description   = %q{A Ruby gem for communicating with the CryptoCompare API}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 

@@ -1,28 +1,41 @@
 module Cryptocompare
-  API_URL = 'https://min-api.cryptocompare.com/data/price'
+  API_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
 
   class Price
-    # Finds the currency price(s) of a given cryptocurrency symbol
+    # Finds the currency price(s) of a given currency symbol
     #
     # Params:
-    # cc_sym [String]        - cryptocurrency symbols  (ex: 'BTC', 'ETH', 'LTC')
-    # c_sym  [String, Array] - currency symbols (ex: 'USD', 'EUR', 'CNY')
+    # from_syms [String, Array] - currency symbols  (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
+    # to_syms   [String, Array] - currency symbols  (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
     #
     # Returns:
-    # [Hash] Hash with cryptocurrency currency prices
+    # [Hash] Hash with currency prices
     #
     # Examples:
-    # Cryptocompare::Price.find('BTC', 'USD')
-    # {"BTC"=>{"USD"=>2594.07}}
+    # 1. Cryptocurrency to Fiat
     #
-    # Cryptocompare::Price.find('ETH', ['USD', 'EUR'])
-    # => {"ETH"=>{"USD"=>305.26, "EUR"=>271.15}}
-    def self.find(cc_sym, c_syms)
-      tsyms = Array(c_syms).join(',')
-      full_path = API_URL + "?fsym=#{cc_sym}&tsyms=#{tsyms}"
+    # Cryptocompare::Price.find('BTC', 'USD')
+    # => {"BTC"=>{"USD"=>2594.07}}
+    #
+    # 2. Fiat to Cryptocurrency
+    #
+    #  Cryptocompare::Price.find('USD', 'BTC')
+    # => {"USD"=>{"BTC"=>0.0004176}}
+    #
+    # 3. Cryptocurrency to Cryptocurrency
+    #
+    # Cryptocompare::Price.find('BTC', 'ETH')
+    # => {"BTC"=>{"ETH"=>9.29}}
+    #
+    # 4. Fiat to Fiat
+    # Cryptocompare::Price.find('USD', 'EUR')
+    # => {"USD"=>{"EUR"=>0.8772}}
+    def self.find(from_syms, to_syms)
+      fsyms = Array(from_syms).join(',')
+      tsyms = Array(to_syms).join(',')
+      full_path = API_URL + "?fsyms=#{fsyms}&tsyms=#{tsyms}"
       api_resp = Faraday.get(full_path)
-      prices_resp = JSON.parse(api_resp.body)
-      { cc_sym => prices_resp }
+      JSON.parse(api_resp.body)
     end
   end
 end

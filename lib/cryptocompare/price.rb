@@ -1,7 +1,10 @@
+require 'faraday'
+require 'json'
+
 module Cryptocompare
   API_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
 
-  class Price
+  module Price
     # Finds the currency price(s) of a given currency symbol
     #
     # Params:
@@ -25,7 +28,7 @@ module Cryptocompare
     # 3. Cryptocurrency to Cryptocurrency
     #
     # Cryptocompare::Price.find('BTC', 'ETH')
-    # => {"BTC"=>{"ETH"=>9.29}}
+    # =>{"BTC"=>{"ETH"=>9.29}}
     #
     # 4. Fiat to Fiat
     # Cryptocompare::Price.find('USD', 'EUR')

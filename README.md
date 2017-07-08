@@ -55,6 +55,20 @@ Cryptocompare::Price.find('USD', 'EUR')
 # => {"USD"=>{"EUR"=>0.8772}}
 ```
 
+5. Multiple cryptocurrencies to multiple fiat
+
+```ruby
+Cryptocompare::Price.find(['BTC','ETH', 'LTC'], ['USD', 'EUR', 'CNY'])
+ # => {"BTC"=>{"USD"=>2501.61, "EUR"=>2197.04, "CNY"=>17329.48}, "ETH"=>{"USD"=>236.59, "EUR"=>209.39, "CNY"=>1655.15}, "LTC"=>{"USD"=>45.74, "EUR"=>40.33, "CNY"=>310.5}}
+```
+
+6. Multiple fiat to multiple cryptocurrencies
+
+```ruby
+Cryptocompare::Price.find(['USD', 'EUR', 'CNY'], ['BTC','ETH', 'LTC'])
+# => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

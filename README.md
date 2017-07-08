@@ -1,8 +1,6 @@
 # Cryptocompare
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cryptocompare`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a Ruby gem that utilizes the CryptoCompare API to fetch data related to cryptocurrencies.
 
 ## Installation
 
@@ -22,7 +20,40 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use Cryptocompare, just require it like so:
+
+```ruby
+require 'cryptocompare'
+```
+
+Examples:
+
+1. Cryptocurrency to Fiat
+
+```ruby
+Cryptocompare::Price.find('BTC', 'USD')
+# => {"BTC"=>{"USD"=>2594.07}}
+```
+
+2. Fiat to Cryptocurrency
+
+```ruby
+Cryptocompare::Price.find('USD', 'BTC')
+# => {"USD"=>{"BTC"=>0.0004176}}
+```
+3. Cryptocurrency to Cryptocurrency
+
+```ruby
+Cryptocompare::Price.find('BTC', 'ETH')
+# =>{"BTC"=>{"ETH"=>9.29}}
+```
+
+4. Fiat to Fiat
+
+```ruby
+Cryptocompare::Price.find('USD', 'EUR')
+# => {"USD"=>{"EUR"=>0.8772}}
+```
 
 ## Development
 
@@ -38,4 +69,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

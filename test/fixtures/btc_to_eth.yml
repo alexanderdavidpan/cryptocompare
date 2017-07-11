@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD
+    uri: https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=ETH
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
   response:
     status:
       code: 200
@@ -21,7 +21,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Access-Control-Allow-Origin:
-      - "*"
+      - '*'
       Access-Control-Allow-Methods:
       - GET
       Access-Control-Allow-Headers:
@@ -31,14 +31,14 @@ http_interactions:
       Cryptocompare-Cache-Hit:
       - 'false'
       Date:
-      - Fri, 07 Jul 2017 02:12:10 GMT
+      - Sun, 09 Jul 2017 18:21:44 GMT
       Connection:
       - keep-alive
       Transfer-Encoding:
       - chunked
     body:
-      encoding: ASCII-8BIT
-      string: '{"BTC":{"USD":2606.73}}'
+      encoding: UTF-8
+      string: '{"BTC":{"ETH":10.55}}'
     http_version: 
-  recorded_at: Fri, 07 Jul 2017 02:12:11 GMT
+  recorded_at: Sun, 09 Jul 2017 18:21:46 GMT
 recorded_with: VCR 3.0.3

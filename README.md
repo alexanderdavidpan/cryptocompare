@@ -68,7 +68,7 @@ Cryptocompare::Price.find(['BTC','ETH', 'LTC'], ['USD', 'EUR', 'CNY'])
 6. Multiple fiat to multiple cryptocurrencies
 
 ```ruby
-Cryptocompare::Price.find(['USD', 'EUR', 'CNY'], ['BTC','ETH', 'LTC'])
+Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC'])
 # => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
 ```
 

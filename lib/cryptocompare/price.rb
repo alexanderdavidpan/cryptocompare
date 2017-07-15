@@ -10,6 +10,8 @@ module Cryptocompare
     # Params:
     # from_syms [String, Array] - currency symbols  (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
     # to_syms   [String, Array] - currency symbols  (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
+    # opts      [Hash] - Options hash
+    # opts[e]   [String] - name of exchange (ex: 'Coinbase','Poloniex') Default: CCCAGG.
     #
     # Returns:
     # [Hash] Hash with currency prices
@@ -41,10 +43,11 @@ module Cryptocompare
     # 6. Multiple fiat to multiple cryptocurrencies
     # Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC'])
     # => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
-    def self.find(from_syms, to_syms)
+    def self.find(from_syms, to_syms, opts = {})
       fsyms = Array(from_syms).join(',')
       tsyms = Array(to_syms).join(',')
       full_path = API_URL + "?fsyms=#{fsyms}&tsyms=#{tsyms}"
+      full_path += "&e=#{opts['e']}" if opts['e']
       api_resp = Faraday.get(full_path)
       JSON.parse(api_resp.body)
     end

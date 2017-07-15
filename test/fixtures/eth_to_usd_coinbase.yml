@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/pricemulti?e=Coinbase&fsyms=ETH&tsyms=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'true'
+      Date:
+      - Sat, 15 Jul 2017 04:33:43 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"ETH":{"USD":191.45}}'
+    http_version: 
+  recorded_at: Sat, 15 Jul 2017 04:33:43 GMT
+recorded_with: VCR 3.0.3

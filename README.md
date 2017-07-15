@@ -72,6 +72,73 @@ Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC'])
 # => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
 ```
 
+7. Find prices based on exchange
+
+```ruby
+Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
+# => {"DASH"=>{"USD"=>152.4}}
+```
+
+## Supported Exchanges
+
+* BTC38
+* BTCC
+* BTCE
+* BTCMarkets
+* BTCXIndia
+* BTER
+* Bit2C
+* BitBay
+* bitFlyer
+* bitFlyerFX
+* BitMarket
+* BitSquare
+* Bitfinex
+* Bitso
+* Bitstamp
+* Bittrex
+* Bleutrade
+* CCEDK
+* Cexio
+* CoinCheck
+* Coinbase
+* Coinfloor
+* Coinone
+* Coinse
+* Coinsetter
+* Cryptopia
+* Cryptsy
+* EtherDelta
+* EthexIndia
+* Gatecoin
+* Gemini
+* HitBTC
+* Huobi
+* itBit
+* Korbit
+* Kraken
+* LakeBTC
+* Liqui
+* LiveCoin
+* LocalBitcoins
+* Luno
+* MercadoBitcoin
+* MonetaGo
+* OKCoin
+* Paymium
+* Poloniex
+* QuadrigaCX
+* Quoine
+* TheRockTrading
+* Tidex
+* Unocoin
+* Vaultoro
+* Yacuna
+* Yobit
+* Yunbi
+
+If no exchange option is specified, then the default 'CCCAGG' is used. This is cryptocompare's aggregated data.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -107,4 +107,19 @@ class TestPrice < Minitest::Test
       assert_equal expected_resp, price_resp
     end
   end
+
+  def test_find_price_cryptocurrency_to_fiat_using_exchange_option
+    VCR.use_cassette('eth_to_usd_coinbase') do
+      expected_resp = {
+        "ETH" => {
+          "USD" => 191.45
+        }
+      }
+
+      price_resp = Cryptocompare::Price.find('ETH', 'USD', {'e' => 'Coinbase'})
+
+      assert price_resp.kind_of?(Hash)
+      assert_equal expected_resp, price_resp
+    end
+  end
 end

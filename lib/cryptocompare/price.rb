@@ -1,8 +1,10 @@
 require 'faraday'
 require 'json'
+require 'yaml'
 
 module Cryptocompare
   API_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
+  EXCHANGES = YAML::load_file(File.join(__dir__, '../../config/exchanges.yml'))
 
   module Price
     # Finds the currency price(s) of a given currency symbol
@@ -47,9 +49,17 @@ module Cryptocompare
       fsyms = Array(from_syms).join(',')
       tsyms = Array(to_syms).join(',')
       full_path = API_URL + "?fsyms=#{fsyms}&tsyms=#{tsyms}"
-      full_path += "&e=#{opts['e']}" if opts['e']
+      full_path += "&e=#{set_exchange(opts['e'])}" if opts['e']
       api_resp = Faraday.get(full_path)
       JSON.parse(api_resp.body)
+    end
+
+    private
+
+    # Helper method to overcome case-sensitive exchange name enforced by the API.
+    # If no supported exchange mapping is found, it will try user's input.
+    def self.set_exchange(exchange)
+      EXCHANGES[exchange.upcase] || exchange
     end
   end
 end

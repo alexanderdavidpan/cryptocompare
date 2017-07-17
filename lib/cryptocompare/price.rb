@@ -45,6 +45,11 @@ module Cryptocompare
     # 6. Multiple fiat to multiple cryptocurrencies
     # Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC'])
     # => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
+    #
+    # 7. Find prices based on exchange
+    # 
+    # Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
+    # # => {"DASH"=>{"USD"=>152.4}}
     def self.find(from_syms, to_syms, opts = {})
       fsyms = Array(from_syms).join(',')
       tsyms = Array(to_syms).join(',')

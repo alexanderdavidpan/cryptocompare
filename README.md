@@ -29,54 +29,78 @@ To use Cryptocompare, just require it like so:
 require 'cryptocompare'
 ```
 
-Examples:
+### Price
 
-1. Cryptocurrency to Fiat
+Cryptocurrency to fiat
 
 ```ruby
 Cryptocompare::Price.find('BTC', 'USD')
 # => {"BTC"=>{"USD"=>2594.07}}
 ```
 
-2. Fiat to Cryptocurrency
+Fiat to cryptocurrency
 
 ```ruby
 Cryptocompare::Price.find('USD', 'BTC')
 # => {"USD"=>{"BTC"=>0.0004176}}
 ```
-3. Cryptocurrency to Cryptocurrency
+
+Cryptocurrency to cryptocurrency
 
 ```ruby
 Cryptocompare::Price.find('BTC', 'ETH')
 # =>{"BTC"=>{"ETH"=>9.29}}
 ```
 
-4. Fiat to Fiat
+Fiat to fiat
 
 ```ruby
 Cryptocompare::Price.find('USD', 'EUR')
 # => {"USD"=>{"EUR"=>0.8772}}
 ```
 
-5. Multiple cryptocurrencies to multiple fiat
+Multiple cryptocurrencies to multiple fiat
 
 ```ruby
 Cryptocompare::Price.find(['BTC','ETH', 'LTC'], ['USD', 'EUR', 'CNY'])
  # => {"BTC"=>{"USD"=>2501.61, "EUR"=>2197.04, "CNY"=>17329.48}, "ETH"=>{"USD"=>236.59, "EUR"=>209.39, "CNY"=>1655.15}, "LTC"=>{"USD"=>45.74, "EUR"=>40.33, "CNY"=>310.5}}
 ```
 
-6. Multiple fiat to multiple cryptocurrencies
+Multiple fiat to multiple cryptocurrencies
 
 ```ruby
 Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC'])
 # => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
 ```
 
-7. Find prices based on exchange
+Find prices based on exchange
 
 ```ruby
 Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
 # => {"DASH"=>{"USD"=>152.4}}
+```
+
+### PriceHistorical
+
+Find historical price of cryptocurrency.
+
+```ruby
+Cryptocompare::PriceHistorical.find('ETH', 'USD')
+# => {"ETH"=>{"USD"=>225.93}}
+```
+
+Find historical price of cryptocurrency at a given timestamp.
+
+```ruby
+Cryptocompare::PriceHistorical.find('ETH', 'USD', {'ts' => 1452680400})
+# => {"ETH"=>{"USD"=>223.2}}
+```
+
+Find historical price of cryptocurrency in many currencies at a given timestamp
+
+```ruby
+Cryptocompare::PriceHistorical.find('ETH', ['BTC', 'USD', 'EUR'], {'ts' => '1452680400')
+# => {"ETH"=>{"BTC"=>0.08006, "USD"=>225.93, "EUR"=>194.24}}
 ```
 
 ## Supported Exchanges

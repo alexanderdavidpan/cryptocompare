@@ -31,49 +31,53 @@ require 'cryptocompare'
 
 ### Price
 
-Cryptocurrency to fiat
+Finds the currency price(s) of a given currency symbol. Really fast, 20-60 ms. Cached each 10 seconds.
+
+**Examples:**
+
+Convert cryptocurrency to fiat.
 
 ```ruby
 Cryptocompare::Price.find('BTC', 'USD')
 # => {"BTC"=>{"USD"=>2594.07}}
 ```
 
-Fiat to cryptocurrency
+Convert fiat to cryptocurrency.
 
 ```ruby
 Cryptocompare::Price.find('USD', 'BTC')
 # => {"USD"=>{"BTC"=>0.0004176}}
 ```
 
-Cryptocurrency to cryptocurrency
+Convert cryptocurrency to cryptocurrency.
 
 ```ruby
 Cryptocompare::Price.find('BTC', 'ETH')
 # =>{"BTC"=>{"ETH"=>9.29}}
 ```
 
-Fiat to fiat
+Convert fiat to fiat.
 
 ```ruby
 Cryptocompare::Price.find('USD', 'EUR')
 # => {"USD"=>{"EUR"=>0.8772}}
 ```
 
-Multiple cryptocurrencies to multiple fiat
+Convert multiple cryptocurrencies to multiple fiat.
 
 ```ruby
 Cryptocompare::Price.find(['BTC','ETH', 'LTC'], ['USD', 'EUR', 'CNY'])
  # => {"BTC"=>{"USD"=>2501.61, "EUR"=>2197.04, "CNY"=>17329.48}, "ETH"=>{"USD"=>236.59, "EUR"=>209.39, "CNY"=>1655.15}, "LTC"=>{"USD"=>45.74, "EUR"=>40.33, "CNY"=>310.5}}
 ```
 
-Multiple fiat to multiple cryptocurrencies
+Convert multiple fiat to multiple cryptocurrencies.
 
 ```ruby
 Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC'])
 # => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
 ```
 
-Find prices based on exchange
+Convert prices based on exchange.
 
 ```ruby
 Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
@@ -81,6 +85,10 @@ Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
 ```
 
 ### PriceHistorical
+
+Finds the price of any cryptocurrency in any other currency that you need at a given timestamp. The price comes from the daily info - so it would be the price at the end of the day GMT based on the requested timestamp. If the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion. Tries to get direct trading pair data, if there is none or it is more than 30 days before the ts requested, it uses BTC conversion. If the opposite pair trades we invert it (eg.: BTC-XMR)
+
+**Examples:**
 
 Find historical price of cryptocurrency.
 
@@ -96,7 +104,7 @@ Cryptocompare::PriceHistorical.find('ETH', 'USD', {'ts' => 1452680400})
 # => {"ETH"=>{"USD"=>223.2}}
 ```
 
-Find historical price of cryptocurrency in many currencies at a given timestamp
+Find historical price of cryptocurrency in many currencies at a given timestamp.
 
 ```ruby
 Cryptocompare::PriceHistorical.find('ETH', ['BTC', 'USD', 'EUR'], {'ts' => '1452680400')

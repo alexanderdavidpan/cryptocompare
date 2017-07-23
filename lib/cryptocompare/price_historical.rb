@@ -35,7 +35,7 @@ module Cryptocompare
     # Cryptocompare::PriceHistorical.find('ETH', 'USD', {'ts' => 1452680400})
     # => {"ETH"=>{"USD"=>223.2}}
     #
-    # 3. Find historical price of cryptocurrency in many currencies at a given timestamp
+    # 3. Find historical price of cryptocurrency in many currencies at a given timestamp.
     #
     # Cryptocompare::PriceHistorical.find('ETH', ['BTC', 'USD', 'EUR'], {'ts' => '1452680400')
     # => {"ETH"=>{"BTC"=>0.08006, "USD"=>225.93, "EUR"=>194.24}}

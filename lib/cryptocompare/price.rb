@@ -21,40 +21,34 @@ module Cryptocompare
     # [Hash] Hash with currency prices
     #
     # Examples:
+    #
     # Convert cryptocurrency to fiat.
     #
-    # Cryptocompare::Price.find('BTC', 'USD')
-    # => {"BTC"=>{"USD"=>2594.07}}
+    #   Cryptocompare::Price.find('BTC', 'USD') #=> {"BTC"=>{"USD"=>2594.07}}
     #
     # Convert fiat to cryptocurrency.
     #
-    # Cryptocompare::Price.find('USD', 'BTC')
-    # => {"USD"=>{"BTC"=>0.0004176}}
+    #   Cryptocompare::Price.find('USD', 'BTC') #=> {"USD"=>{"BTC"=>0.0004176}}
     #
     # Convert cryptocurrency to cryptocurrency.
     #
-    # Cryptocompare::Price.find('BTC', 'ETH')
-    # =>{"BTC"=>{"ETH"=>9.29}}
+    #   Cryptocompare::Price.find('BTC', 'ETH') #=>{"BTC"=>{"ETH"=>9.29}}
     #
     # Convert fiat to fiat.
     #
-    # Cryptocompare::Price.find('USD', 'EUR')
-    # => {"USD"=>{"EUR"=>0.8772}}
+    #   Cryptocompare::Price.find('USD', 'EUR') #=> {"USD"=>{"EUR"=>0.8772}}
     #
     # Convert multiple cryptocurrencies to multiple fiat.
     #
-    # Cryptocompare::Price.find(['BTC','ETH', 'LTC'], ['USD', 'EUR', 'CNY'])
-    # => {"BTC"=>{"USD"=>2501.61, "EUR"=>2197.04, "CNY"=>17329.48}, "ETH"=>{"USD"=>236.59, "EUR"=>209.39, "CNY"=>1655.15}, "LTC"=>{"USD"=>45.74, "EUR"=>40.33, "CNY"=>310.5}}
+    #   Cryptocompare::Price.find(['BTC','ETH', 'LTC'], ['USD', 'EUR', 'CNY']) #=> {"BTC"=>{"USD"=>2501.61, "EUR"=>2197.04, "CNY"=>17329.48}, "ETH"=>{"USD"=>236.59, "EUR"=>209.39, "CNY"=>1655.15}, "LTC"=>{"USD"=>45.74, "EUR"=>40.33, "CNY"=>310.5}}
     #
     # Convert multiple fiat to multiple cryptocurrencies.
     #
-    # Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC'])
-    # => {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
+    #   Cryptocompare::Price.find(['USD', 'EUR'], ['BTC','ETH', 'LTC']) #=> {"USD"=>{"BTC"=>0.0003996, "ETH"=>0.004238, "LTC"=>0.02184}, "EUR"=>{"BTC"=>0.0004548, "ETH"=>0.00477, "LTC"=>0.0248}}
     #
     # Find prices based on exchange.
     #
-    # Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
-    # # => {"DASH"=>{"USD"=>152.4}}
+    #   Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'}) #=> {"DASH"=>{"USD"=>152.4}}
     def self.find(from_syms, to_syms, opts = {})
       fsyms = Array(from_syms).join(',')
       tsyms = Array(to_syms).join(',')

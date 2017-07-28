@@ -10,20 +10,20 @@ module Cryptocompare
     # information, aggregated data and individual data for each exchange
     # available.
     #
-    # Params:
-    # from_sym  [String]  - (required) currency symbol (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
-    # to_sym    [String]  - (required) currency symbol (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
+    # ==== Parameters
+    # * +from_sym+  [String]  - (required) currency symbol (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
+    # * +to_sym+    [String]  - (required) currency symbol (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
     #
-    # Returns:
+    # ==== Returns
     # [Hash] Hash with data about given currency pair.
     #
-    # Example:
+    # ==== Example
     #
     # Find data for a currency pair.
     #
     #   Cryptocompare::CoinSnapshot.find('BTC', 'USD')
     #
-    # Sample response:
+    # Sample response
     #
     #   {
     #     "Response":"Success",

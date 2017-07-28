@@ -1,4 +1,4 @@
-# Cryptocompare
+# cryptocompare
 
 [![Gem Version](https://badge.fury.io/rb/cryptocompare.svg)](http://badge.fury.io/rb/cryptocompare) [![Build Status](https://travis-ci.org/alexanderdavidpan/cryptocompare.svg)](https://travis-ci.org/alexanderdavidpan/cryptocompare)
 
@@ -107,7 +107,7 @@ Cryptocompare::PriceHistorical.find('ETH', 'USD', {'ts' => 1452680400})
 Find historical price of cryptocurrency in many currencies at a given timestamp.
 
 ```ruby
-Cryptocompare::PriceHistorical.find('ETH', ['BTC', 'USD', 'EUR'], {'ts' => '1452680400')
+Cryptocompare::PriceHistorical.find('ETH', ['BTC', 'USD', 'EUR'], {'ts' => '1452680400'})
 # => {"ETH"=>{"BTC"=>0.08006, "USD"=>225.93, "EUR"=>194.24}}
 ```
 

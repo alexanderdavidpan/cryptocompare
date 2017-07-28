@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-To use Cryptocompare, just require it like so:
+To use cryptocompare, just require it like so:
 
 ```ruby
 require 'cryptocompare'
@@ -109,6 +109,67 @@ Find historical price of cryptocurrency in many currencies at a given timestamp.
 ```ruby
 Cryptocompare::PriceHistorical.find('ETH', ['BTC', 'USD', 'EUR'], {'ts' => '1452680400'})
 # => {"ETH"=>{"BTC"=>0.08006, "USD"=>225.93, "EUR"=>194.24}}
+```
+
+### CoinSnapshot
+
+Get data for a currency pair. It returns general block explorer information, aggregated data and individual data for each exchange available.
+
+**Example:**
+
+```ruby
+Cryptocompare::CoinSnapshot.find('BTC', 'USD')
+# => {
+#     "Response":"Success",
+#     "Message":"Coin snapshot succesfully returned",
+#     "Type":100,
+#     "Data":{
+#       "Algorithm":"SHA256",
+#       "ProofType":"PoW",
+#       "BlockNumber":378345,
+#       "NetHashesPerSecond":465548431.66333866,
+#       "TotalCoinsMined":14707625.0,
+#       "BlockReward":25.0,
+#       "AggregatedData":{
+#         "TYPE":"5",
+#         "MARKET":"CCCAGG",
+#         "FROMSYMBOL":"BTC",
+#         "TOSYMBOL":"USD",
+#         "FLAGS":"4",
+#         "PRICE":"245.41",
+#         "LASTUPDATE":"1444520460",
+#         "LASTVOLUME":"0.0086",
+#         "LASTVOLUMETO":"2.110268",
+#         "LASTTRADEID":"1444520460357",
+#         "VOLUME24HOUR":"49591.48108707269",
+#         "VOLUME24HOURTO":"12139110.189163648",
+#         "OPEN24HOUR":"244.41",
+#         "HIGH24HOUR":"258.37",
+#         "LOW24HOUR":"239.01000004",
+#         "LASTMARKET":"Huobi"
+#       },
+#       "Exchanges":[
+#         {
+#           "TYPE":"2",
+#           "MARKET":"LakeBTC",
+#           "FROMSYMBOL":"BTC",
+#           "TOSYMBOL":"USD",
+#           "FLAGS":"2",
+#           "PRICE":"244.37",
+#           "LASTUPDATE":"1444513131",
+#           "LASTVOLUME":"0.03",
+#           "LASTVOLUMETO":"7.3311",
+#           "LASTTRADEID":"1444513131",
+#           "VOLUME24HOUR":"3599.0560000000005",
+#           "VOLUME24HOURTO":"879237.6299349999",
+#           "OPEN24HOUR":"243.83",
+#           "HIGH24HOUR":"245.23",
+#           "LOW24HOUR":"242.68"
+#         },
+#         ....
+#       ]
+#     }
+#   }
 ```
 
 ## Supported Exchanges

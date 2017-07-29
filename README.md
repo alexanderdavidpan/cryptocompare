@@ -53,7 +53,7 @@ Convert cryptocurrency to cryptocurrency.
 
 ```ruby
 Cryptocompare::Price.find('BTC', 'ETH')
-# =>{"BTC"=>{"ETH"=>9.29}}
+# => {"BTC"=>{"ETH"=>9.29}}
 ```
 
 Convert fiat to fiat.

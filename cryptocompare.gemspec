@@ -13,6 +13,8 @@ Gem::Specification.new do |spec|
   spec.description   = %q{A Ruby gem for communicating with the CryptoCompare API}
   spec.homepage      = "https://github.com/alexanderdavidpan/cryptocompare"
   spec.license       = "MIT"
+  
+  spec.required_ruby_version = '>= 2.0.0'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.

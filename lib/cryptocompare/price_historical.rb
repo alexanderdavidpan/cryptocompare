@@ -1,6 +1,5 @@
 require 'faraday'
 require 'json'
-require 'yaml'
 
 module Cryptocompare
   module PriceHistorical

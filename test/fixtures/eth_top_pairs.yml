@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/top/pairs?fsym=ETH
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'false'
+      Date:
+      - Wed, 02 Aug 2017 05:05:37 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"Response":"Success","Data":[{"exchange":"CCCAGG","fromSymbol":"ETH","toSymbol":"KRW","volume24h":1132108.482757223,"volume24hTo":286355191868.53656},{"exchange":"CCCAGG","fromSymbol":"ETH","toSymbol":"USD","volume24h":1100469.2082077293,"volume24hTo":243085247.32884723},{"exchange":"CCCAGG","fromSymbol":"ETH","toSymbol":"BTC","volume24h":908587.2260726802,"volume24hTo":72857.61558988827},{"exchange":"CCCAGG","fromSymbol":"ETH","toSymbol":"CNY","volume24h":514167.1969560007,"volume24hTo":759524805.8852756},{"exchange":"CCCAGG","fromSymbol":"ETH","toSymbol":"EUR","volume24h":158353.75482262,"volume24hTo":29995879.717892695}]}'
+    http_version: 
+  recorded_at: Wed, 02 Aug 2017 05:05:37 GMT
+recorded_with: VCR 3.0.3

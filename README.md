@@ -172,6 +172,38 @@ Cryptocompare::CoinSnapshot.find('BTC', 'USD')
 #   }
 ```
 
+### TopPairs
+
+Get top pairs by volume for a currency (always uses aggregated data). The number of pairs you get is the minimum of the limit you set (default 5) and the total number of pairs available.
+
+**Examples:**
+
+Find top pairs by trading volume for a given currency.
+
+```ruby
+Cryptocompare::TopPairs.find('ETH')
+# => {
+#   Response: "Success",
+#   Data: [
+#     {
+#       exchange: "CCCAGG",
+#       fromSymbol: "ETH",
+#       toSymbol: "USD",
+#       volume24h: 1310705.3005027298,
+#       volume24hTo: 288031723.3503975
+#     },
+#     {
+#       exchange: "CCCAGG",
+#       fromSymbol: "ETH",
+#       toSymbol: "BTC",
+#       volume24h: 978200.2198323006,
+#       volume24hTo: 77883.06190085363
+#     },
+#     ...
+#   ]
+# }
+```
+
 ## Supported Exchanges
 
 * BTC38

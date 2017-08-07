@@ -5,7 +5,7 @@ module Cryptocompare
   module TopPairs
     API_URL = 'https://min-api.cryptocompare.com/data/top/pairs'
 
-    # Get top pairs by volume for a currency (always uses our aggregated data).
+    # Get top pairs by volume for a currency (always uses aggregated data).
     # The number of pairs you get is the minimum of the limit you set
     # (default 5) and the total number of pairs available.
     #
@@ -22,6 +22,8 @@ module Cryptocompare
     #        info about top-traded pairs.
     #
     # ==== Examples
+    #
+    # Find top pairs by trading volume for a given currency.
     #
     #   Cryptocompare::TopPairs.find('ETH')
     #

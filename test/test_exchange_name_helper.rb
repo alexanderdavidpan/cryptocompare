@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExchangeNameHelperTest < Minitest::Test
+class TestExchangeNameHelper < Minitest::Test
   def test_set_exchange_name_case_insensitive
     ExchangeNameHelper::EXCHANGES.each do |_, v|
       random_casing = v.gsub(/./){|s| s.send(%i[upcase downcase].sample)}

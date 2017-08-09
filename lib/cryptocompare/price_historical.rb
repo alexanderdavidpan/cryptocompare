@@ -20,9 +20,11 @@ module Cryptocompare
     # * +opts+      [Hash]             - (optional) options hash
     #
     # ==== Options
+    #
     # * +ts+        [String, Integer]  - (optional) timestamp
     #
     # ==== Returns
+    #
     # [Hash] Hash with currency prices
     #
     # ==== Examples

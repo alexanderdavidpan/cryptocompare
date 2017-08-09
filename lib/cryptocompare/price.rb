@@ -12,14 +12,17 @@ module Cryptocompare
     # 20-60 ms. Cached each 10 seconds.
     #
     # ==== Parameters
+    #
     # * +from_syms+ [String, Array] - (required) currency symbols  (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
     # * +to_syms+   [String, Array] - (required) currency symbols  (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
     # * +opts+      [Hash]          - (optional) options hash
     #
     # ==== Options
+    #
     # * +e+         [String]        - (optional) name of exchange (ex: 'Coinbase','Poloniex') Default: CCCAGG.
     #
     # ==== Returns
+    #
     # [Hash] Hash with currency prices
     #
     # ==== Examples

@@ -15,9 +15,11 @@ module Cryptocompare
     # * +opts+      [Hash]             - (optional) options hash
     #
     # ==== Options
+    #
     # * +limit+     [Integer]          - (optional) limit. Default 5. Max 2000.
     #
     # ==== Returns
+    #
     # [Hash] Returns a hash containing data as an array of hashes containing
     #        info about top-traded pairs.
     #

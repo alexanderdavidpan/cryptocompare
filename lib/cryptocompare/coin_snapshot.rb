@@ -10,10 +10,12 @@ module Cryptocompare
     # available.
     #
     # ==== Parameters
+    #
     # * +from_sym+  [String]  - (required) currency symbol (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
     # * +to_sym+    [String]  - (required) currency symbol (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
     #
     # ==== Returns
+    #
     # [Hash] Hash with data about given currency pair.
     #
     # ==== Example

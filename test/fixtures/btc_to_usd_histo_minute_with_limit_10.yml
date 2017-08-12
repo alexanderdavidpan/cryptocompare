@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/histominute?fsym=BTC&limit=10&tsym=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'false'
+      Date:
+      - Sat, 12 Aug 2017 05:39:55 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"Response":"Success","Type":100,"Aggregated":false,"Data":[{"time":1502515740,"close":3707.03,"high":3707.58,"low":3702.68,"open":3702.79,"volumefrom":49.96,"volumeto":185558.67},{"time":1502515800,"close":3707.46,"high":3709.25,"low":3706.8,"open":3707.03,"volumefrom":64.43,"volumeto":238439.91},{"time":1502515860,"close":3706.42,"high":3707.46,"low":3706.17,"open":3707.46,"volumefrom":86.07,"volumeto":317782.16},{"time":1502515920,"close":3707.09,"high":3707.21,"low":3705.7,"open":3706.42,"volumefrom":39.58,"volumeto":146639.73},{"time":1502515980,"close":3705.71,"high":3707.12,"low":3704.68,"open":3707.09,"volumefrom":37.77,"volumeto":139731.57},{"time":1502516040,"close":3702.31,"high":3706.46,"low":3699.53,"open":3705.71,"volumefrom":149.02,"volumeto":548555.98},{"time":1502516100,"close":3699.1,"high":3702.31,"low":3698.77,"open":3702.31,"volumefrom":80.07,"volumeto":295856.28},{"time":1502516160,"close":3701.06,"high":3701.27,"low":3698.3,"open":3699.1,"volumefrom":29.94,"volumeto":110593.59},{"time":1502516220,"close":3699.45,"high":3701.36,"low":3698.65,"open":3701.06,"volumefrom":40.17,"volumeto":152022.01},{"time":1502516280,"close":3702.07,"high":3702.17,"low":3698.53,"open":3699.45,"volumefrom":36.38,"volumeto":134707.67},{"time":1502516340,"close":3702.3,"high":3702.07,"low":3702.07,"open":3702.07,"volumefrom":0,"volumeto":0}],"TimeTo":1502516340,"TimeFrom":1502515740,"FirstValueInArray":true,"ConversionType":{"type":"direct","conversionSymbol":""}}'
+    http_version: 
+  recorded_at: Sat, 12 Aug 2017 05:39:56 GMT
+recorded_with: VCR 3.0.3

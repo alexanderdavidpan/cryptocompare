@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/histominute?fsym=BTC&limit=1&tsym=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'false'
+      Date:
+      - Sat, 12 Aug 2017 05:39:55 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"Response":"Success","Type":100,"Aggregated":false,"Data":[{"time":1502516280,"close":3702.07,"high":3702.17,"low":3698.53,"open":3699.45,"volumefrom":36.38,"volumeto":134707.67},{"time":1502516340,"close":3702.3,"high":3702.07,"low":3702.07,"open":3702.07,"volumefrom":0,"volumeto":0}],"TimeTo":1502516340,"TimeFrom":1502516280,"FirstValueInArray":true,"ConversionType":{"type":"direct","conversionSymbol":""}}'
+    http_version: 
+  recorded_at: Sat, 12 Aug 2017 05:39:55 GMT
+recorded_with: VCR 3.0.3

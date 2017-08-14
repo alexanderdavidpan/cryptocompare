@@ -22,7 +22,7 @@ module Cryptocompare
     # ==== Options
     #
     # * +e+         [String]           - (optional) name of exchange (ex: 'Coinbase','Poloniex') Default: CCCAGG.
-    # * +limit+     [Integer]          - (optional) limit. Default 1440. Max 2000.
+    # * +limit+     [Integer]          - (optional) limit. Default 1440. Max 2000. Must be positive integer. Returns limit + 1 data points.
     # * +agg+       [Integer]          - (optional) number of data points to aggregate. Default 1.
     # * +to_ts+     [Integer]          - (optional) timestamp. Use the timestamp option to set a historical start point. By default, it gets historical data for the past several minutes.
     # * +tc+        [Boolean]          - (optional) try conversion. Default true. If the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion.

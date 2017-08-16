@@ -30,6 +30,13 @@ class TestHistoMinute < Minitest::Test
     end
   end
 
+  def test_find_histo_minute_cryptocurrency_to_fiat_exchange_option
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=USD&e=Poloneix')
+      .to_return(:status => 200, :body => basic_histo_minute_json_response)
+
+    Cryptocompare::HistoMinute.find('BTC', 'USD', {'e' => 'Poloneix'})
+  end
+
   def test_find_histo_minute_cryptocurrency_to_fiat_limit_option
     # Limit 1 - Will return 2 data points
     VCR.use_cassette('btc_to_usd_histo_minute_with_limit_1') do
@@ -96,5 +103,18 @@ class TestHistoMinute < Minitest::Test
 
       assert_equal to_timestamp, histo_minute_data.last['time']
     end
+  end
+
+  def test_find_histo_minute_cryptocurrency_to_fiat_tc_option
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=USD&tryConversion=false')
+      .to_return(:status => 200, :body => basic_histo_minute_json_response)
+
+    Cryptocompare::HistoMinute.find('BTC', 'USD', {'tc' => false})
+  end
+
+  private
+
+  def basic_histo_minute_json_response
+    '{"Response":"Success","Type":100,"Aggregated":false,"Data":[]}'
   end
 end

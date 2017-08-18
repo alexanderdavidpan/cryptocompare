@@ -39,6 +39,8 @@ module Cryptocompare
     #
     #   Cryptocompare::HistoMinute.find('BTC', 'USD')
     #
+    # Sample response
+    #
     #   {
     #     Response: "Success",
     #     Type: 100,

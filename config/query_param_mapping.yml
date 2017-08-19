@@ -1,0 +1,12 @@
+# Mapping of cryptocompare gem parameters to CryptoCompare API query parameters
+agg: aggregate
+all_data: allData
+e: e
+from_sym: fsym
+from_syms: fsyms
+limit: limit
+tc: tryConversion
+to_sym: tsym
+to_syms: tsyms
+to_ts: toTs
+ts: ts

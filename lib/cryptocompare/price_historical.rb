@@ -44,9 +44,12 @@ module Cryptocompare
     #   Cryptocompare::PriceHistorical.find('ETH', ['BTC', 'USD', 'EUR'], {'ts' => '1452680400'})
     #   #=> {"ETH"=>{"BTC"=>0.08006, "USD"=>225.93, "EUR"=>194.24}}
     def self.find(from_sym, to_syms, opts = {})
-      tsyms = Array(to_syms).join(',')
-      full_path = API_URL + "?fsym=#{from_sym}&tsyms=#{tsyms}"
-      full_path += "&ts=#{opts['ts']}" if opts['ts']
+      params = {
+        'from_sym' => from_sym,
+        'to_syms'  => Array(to_syms).join(',')
+      }.merge!(opts)
+
+      full_path = QueryParamHelper.set_query_params(API_URL, params)
       api_resp = Faraday.get(full_path)
       JSON.parse(api_resp.body)
     end

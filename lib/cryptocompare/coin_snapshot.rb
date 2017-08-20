@@ -78,7 +78,12 @@ module Cryptocompare
     #     }
     #   }
     def self.find(from_sym, to_sym)
-      full_path = API_URL + "?fsym=#{from_sym}&tsym=#{to_sym}"
+      params = {
+        'from_sym' => from_sym,
+        'to_sym'   => to_sym
+      }
+
+      full_path = QueryParamHelper.set_query_params(API_URL, params)
       api_resp = Faraday.get(full_path)
       JSON.parse(api_resp.body)
     end

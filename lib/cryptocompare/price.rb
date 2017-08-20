@@ -1,11 +1,8 @@
 require 'faraday'
 require 'json'
-require_relative 'helpers/exchange_name_helper'
 
 module Cryptocompare
   module Price
-    extend ExchangeNameHelper
-
     API_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
 
     # Finds the currency price(s) of a given currency symbol. Really fast,
@@ -62,12 +59,12 @@ module Cryptocompare
     #   Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
     #   #=> {"DASH"=>{"USD"=>152.4}}
     def self.find(from_syms, to_syms, opts = {})
-      fsyms = Array(from_syms).join(',')
-      tsyms = Array(to_syms).join(',')
-      full_path = API_URL + "?fsyms=#{fsyms}&tsyms=#{tsyms}"
-      if (exchange = opts['e'])
-        full_path += "&e=#{ExchangeNameHelper.set_exchange(exchange)}"
-      end
+      params = {
+        'from_syms' => Array(from_syms).join(','),
+        'to_syms' => Array(to_syms).join(',')
+      }.merge!(opts)
+
+      full_path = QueryParamHelper.set_query_params(API_URL, params)
       api_resp = Faraday.get(full_path)
       JSON.parse(api_resp.body)
     end

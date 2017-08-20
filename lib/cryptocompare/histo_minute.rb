@@ -1,11 +1,8 @@
 require 'faraday'
 require 'json'
-require_relative 'helpers/exchange_name_helper'
 
 module Cryptocompare
   module HistoMinute
-    extend ExchangeNameHelper
-
     API_URL = 'https://min-api.cryptocompare.com/data/histominute'
 
     # Get open, high, low, close, volumefrom and volumeto for each minute of
@@ -75,28 +72,12 @@ module Cryptocompare
     #     }
     #   }
     def self.find(from_sym, to_sym, opts = {})
-      full_path = API_URL + "?fsym=#{from_sym}&tsym=#{to_sym}"
+      params = {
+        'from_sym' => from_sym,
+        'to_sym' => to_sym
+      }.merge!(opts)
 
-      if (exchange = opts['e'])
-        full_path += "&e=#{ExchangeNameHelper.set_exchange(exchange)}"
-      end
-
-      if (limit = opts['limit'])
-        full_path += "&limit=#{limit}"
-      end
-
-      if (agg = opts['agg'])
-        full_path += "&aggregate=#{agg}"
-      end
-
-      if (to_ts = opts['to_ts'])
-        full_path += "&toTs=#{to_ts}"
-      end
-
-      if (opts['tc'] == false)
-        full_path += "&tryConversion=false"
-      end
-
+      full_path = QueryParamHelper.set_query_params(API_URL, params)
       api_resp = Faraday.get(full_path)
       JSON.parse(api_resp.body)
     end

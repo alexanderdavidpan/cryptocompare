@@ -38,30 +38,30 @@ module Cryptocompare
     #   {
     #     Response: "Success",
     #     Type: 100,
-    #     Aggregated: true,
+    #     Aggregated: false,
     #     Data: [
     #       {
-    #         time: 1502337600,
-    #         close: 3396.44,
-    #         high: 3397.63,
-    #         low: 3396.34,
-    #         open: 3397.39,
-    #         volumefrom: 98.2,
-    #         volumeto: 335485
+    #         time: 1502643600,
+    #         close: 3998.47,
+    #         high: 4069.8,
+    #         low: 3982.5,
+    #         open: 4059.28,
+    #         volumefrom: 5087.23,
+    #         volumeto: 20453919.02
     #       },
     #       {
-    #         time: 1502341200,
-    #         close: 3396.86,
-    #         high: 3396.94,
-    #         low: 3396.44,
-    #         open: 3396.44,
-    #         volumefrom: 16.581031,
-    #         volumeto: 56637.869999999995
+    #         time: 1502647200,
+    #         close: 4061.5,
+    #         high: 4074.57,
+    #         low: 3998.47,
+    #         open: 3998.47,
+    #         volumefrom: 3839.78,
+    #         volumeto: 15606476.19
     #       },
     #       ...
     #     ],
-    #     TimeTo: 1502942400,
-    #     TimeFrom: 1502337600,
+    #     TimeTo: 1503248400,
+    #     TimeFrom: 1502643600,
     #     FirstValueInArray: true,
     #     ConversionType: {
     #       type: "direct",

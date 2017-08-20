@@ -249,6 +249,51 @@ Cryptocompare::HistoMinute.find('BTC', 'USD')
 # }
 ```
 
+### HistoHour
+
+Get open, high, low, close, volumefrom and volumeto from the each hour historical data. It uses BTC conversion if data is not available because the coin is not trading in the specified currency.
+
+**Examples:**
+
+Find historical data by hour for BTC to USD.
+
+```ruby
+Cryptocompare::HistoHour.find('BTC', 'USD')
+# => {
+#   Response: "Success",
+#   Type: 100,
+#   Aggregated: false,
+#     Data: [
+#     {
+#       time: 1502259120,
+#       close: 3396.44,
+#       high: 3397.63,
+#       low: 3396.34,
+#       open: 3397.39,
+#       volumefrom: 98.2,
+#       volumeto: 335485
+#     },
+#     {
+#       time: 1502259300,
+#       close: 3396.86,
+#       high: 3396.94,
+#       low: 3396.44,
+#       open: 3396.44,
+#       volumefrom: 16.581031,
+#       volumeto: 56637.869999999995
+#     },
+#     ...
+#   ],
+#   TimeTo: 1503248400,
+#   TimeFrom: 1502643600,
+#   FirstValueInArray: true,
+#   ConversionType: {
+#     type: "direct",
+#     conversionSymbol: ""
+#   }
+# }
+```
+
 ## Supported Exchanges
 
 * BTC38

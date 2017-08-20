@@ -8,19 +8,14 @@ module Cryptocompare
 
     # Appends query parameters to path
     def self.set_query_params(path, opts)
-      path += "?#{to_query(opts)}"
+      path + "?#{to_query(opts)}"
     end
-
-    private
 
     # Helper method to parse parameters and build query parameters
     def self.to_query(opts)
       opts.collect do |key, value|
-        if key == 'e'
-          "#{QUERY_PARAM_MAPPING[key]}=#{ExchangeNameHelper.set_exchange(value)}"
-        else
-          "#{QUERY_PARAM_MAPPING[key]}=#{value}"
-        end
+        value = ExchangeNameHelper.set_exchange(value) if key == 'e'
+        "#{QUERY_PARAM_MAPPING[key]}=#{value}"
       end.sort * '&'
     end
   end

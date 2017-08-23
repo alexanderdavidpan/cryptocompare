@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/histoday?fsym=BTC&toTs=1502496000&tsym=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'false'
+      Date:
+      - Sun, 13 Aug 2017 01:06:03 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"Response":"Success","Type":100,"Aggregated":false,"Data":[{"time":1499904000,"close":2362.44,"high":2436.66,"low":2334.96,"open":2403.09,"volumefrom":88166.37,"volumeto":208630220.69},{"time":1499990400,"close":2234.17,"high":2370.53,"low":2165.36,"open":2362.44,"volumefrom":114411.35,"volumeto":257704533.44},{"time":1500076800,"close":1975.08,"high":2237.13,"low":1974.03,"open":2234.17,"volumefrom":155317.39,"volumeto":320719096.8},{"time":1500163200,"close":1914.09,"high":2044.41,"low":1808.99,"open":1975.08,"volumefrom":189643.47,"volumeto":364287861.72},{"time":1500249600,"close":2233.39,"high":2233.83,"low":1913.79,"open":1914.09,"volumefrom":176887.53,"volumeto":368366495.35},{"time":1500336000,"close":2320.23,"high":2400.74,"low":2164.59,"open":2233.39,"volumefrom":202621.16,"volumeto":465220151.81},{"time":1500422400,"close":2282.58,"high":2412.38,"low":2243.13,"open":2320.23,"volumefrom":154319.01,"volumeto":357639189.58},{"time":1500508800,"close":2866.02,"high":2932.81,"low":2282.11,"open":2282.58,"volumefrom":310335.43,"volumeto":807416890.88},{"time":1500595200,"close":2675.08,"high":2873.96,"low":2622.54,"open":2866.02,"volumefrom":193756.93,"volumeto":529154789.97},{"time":1500681600,"close":2836.53,"high":2876.71,"low":2658.59,"open":2675.08,"volumefrom":121917.95,"volumeto":341992860.2},{"time":1500768000,"close":2756.61,"high":2856.67,"low":2675.65,"open":2836.53,"volumefrom":108229.76,"volumeto":299869260.34},{"time":1500854400,"close":2763.42,"high":2798.89,"low":2715.69,"open":2756.61,"volumefrom":83009.25,"volumeto":229047365.02},{"time":1500940800,"close":2582.58,"high":2779.08,"low":2472.62,"open":2763.42,"volumefrom":205883.15,"volumeto":534765380.75},{"time":1501027200,"close":2559.21,"high":2631.73,"low":2441.54,"open":2582.58,"volumefrom":135502.93,"volumeto":340465234.92},{"time":1501113600,"close":2691.88,"high":2712.92,"low":2547.74,"open":2559.21,"volumefrom":103832.54,"volumeto":269880857.99},{"time":1501200000,"close":2806.75,"high":2843.78,"low":2683.59,"open":2691.88,"volumefrom":138904.86,"volumeto":383479795.74},{"time":1501286400,"close":2733.5,"high":2812.13,"low":2699.42,"open":2806.75,"volumefrom":84491.69,"volumeto":230818894.97},{"time":1501372800,"close":2766.49,"high":2773.06,"low":2621.68,"open":2733.5,"volumefrom":82717.65,"volumeto":222933516.31},{"time":1501459200,"close":2883.27,"high":2916.3,"low":2723.05,"open":2766.49,"volumefrom":91115.22,"volumeto":254836601.62},{"time":1501545600,"close":2746.99,"high":2946.02,"low":2659.62,"open":2883.27,"volumefrom":123174.1,"volumeto":341216428.6},{"time":1501632000,"close":2720.53,"high":2773.8,"low":2668.87,"open":2746.99,"volumefrom":81817.6,"volumeto":222534344.58},{"time":1501718400,"close":2809.99,"high":2822.88,"low":2717.62,"open":2720.53,"volumefrom":68102.9,"volumeto":188517085.91},{"time":1501804800,"close":2878.49,"high":2892.67,"low":2779.51,"open":2809.99,"volumefrom":68760.4,"volumeto":195800289.46},{"time":1501891200,"close":3262.8,"high":3344.01,"low":2875.91,"open":2878.49,"volumefrom":159402.96,"volumeto":503737620.4},{"time":1501977600,"close":3232.03,"high":3295.07,"low":3166.52,"open":3262.8,"volumefrom":60660.39,"volumeto":196484496.53},{"time":1502064000,"close":3401.91,"high":3425.13,"low":3198.51,"open":3232.03,"volumefrom":88111.88,"volumeto":294021645.24},{"time":1502150400,"close":3429.38,"high":3494.87,"low":3357.15,"open":3401.91,"volumefrom":106940.67,"volumeto":366169429.25},{"time":1502236800,"close":3348.79,"high":3437.15,"low":3251.03,"open":3429.38,"volumefrom":97062.76,"volumeto":324058681.71},{"time":1502323200,"close":3425.67,"high":3453.84,"low":3322.92,"open":3348.79,"volumefrom":71000.32,"volumeto":242024460.29},{"time":1502409600,"close":3654.37,"high":3706.48,"low":3409.79,"open":3425.67,"volumefrom":97564.43,"volumeto":345135492.36},{"time":1502496000,"close":3871.62,"high":3967.26,"low":3611.36,"open":3654.37,"volumefrom":123593.57,"volumeto":469532325.43}],"TimeTo":1502496000,"TimeFrom":1499904000,"FirstValueInArray":true,"ConversionType":{"type":"direct","conversionSymbol":""}}'
+    http_version: 
+  recorded_at: Sun, 13 Aug 2017 01:06:04 GMT
+recorded_with: VCR 3.0.3

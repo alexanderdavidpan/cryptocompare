@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/histoday?fsym=BTC&limit=1&tsym=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'false'
+      Date:
+      - Sun, 13 Aug 2017 01:01:56 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"Response":"Success","Type":100,"Aggregated":false,"Data":[{"time":1502496000,"close":3871.62,"high":3967.26,"low":3611.36,"open":3654.37,"volumefrom":123593.57,"volumeto":469532325.43},{"time":1502582400,"close":3937.76,"high":3915.57,"low":3871.62,"open":3871.62,"volumefrom":2611.87,"volumeto":10181548.77}],"TimeTo":1502582400,"TimeFrom":1502496000,"FirstValueInArray":true,"ConversionType":{"type":"direct","conversionSymbol":""}}'
+    http_version: 
+  recorded_at: Sun, 13 Aug 2017 01:01:57 GMT
+recorded_with: VCR 3.0.3

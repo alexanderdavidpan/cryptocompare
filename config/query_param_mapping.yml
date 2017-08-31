@@ -11,3 +11,4 @@ to_sym: tsym
 to_syms: tsyms
 to_ts: toTs
 ts: ts
+utc_offset: UTCHourDiff

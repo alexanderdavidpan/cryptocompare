@@ -5,6 +5,7 @@ module Cryptocompare
   module Price
     PRICE_API_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
     GENERATE_AVG_API_URL = 'https://min-api.cryptocompare.com/data/generateAvg'
+    DAY_AVG_API_URL = 'https://min-api.cryptocompare.com/data/dayAvg'
 
     # Finds the currency price(s) of a given currency symbol. Really fast,
     # 20-60 ms. Cached each 10 seconds.
@@ -146,6 +147,60 @@ module Cryptocompare
       }.merge!(opts)
 
       full_path = QueryParamHelper.set_query_params(GENERATE_AVG_API_URL, params)
+      api_resp = Faraday.get(full_path)
+      JSON.parse(api_resp.body)
+    end
+
+    # Get day average price. The values are based on hourly vwap data and the
+    # average can be calculated in different ways. It uses BTC conversion if
+    # data is not available because the coin is not trading in the specified
+    # currency. If 'tc' param is set to false, it will give you the direct
+    # data. If no toTS is given it will automatically do the current day. Also,
+    # for different timezones use the utc_offset param. The calculation types
+    # are: HourVWAP - a VWAP of the hourly close price,MidHighLow - the average
+    # between the 24 H high and low.VolFVolT - the total volume from / the total
+    # volume to (only avilable with tryConversion set to false so only for
+    # direct trades but the value should be the most accurate price)
+    #
+    # ==== Parameters
+    #
+    # * +from_sym+    [String]        - (required) currency symbols  (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
+    # * +to_sym+      [String]        - (required) currency symbols  (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
+    # * +opts+        [Hash]          - (optional) options hash
+    #
+    # ==== Options
+    #
+    # * +e+           [String]        - (optional) name of exchange (ex: 'Coinbase','Poloniex') Default: CCCAGG.
+    # * +tc+          [Boolean]       - (optional) try conversion. Default true. If the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion.
+    # * +to_ts+       [Integer]       - (optional) timestamp. Must be an hour unit.
+    # * +utc_offset+  [Integer]       - (optional) Default is UTC, but if you want a different time zone just pass the hour difference. For example, for PST you would pass -8.
+    #
+    # ==== Returns
+    #
+    # [Hash] Hash with currency prices and information about conversion type.
+    #
+    # ==== Examples
+    #
+    # Generate average day price for cryptocurrency to fiat currency.
+    #
+    #   Cryptocompare::Price.day_avg('BTC', 'USD')
+    #
+    # Sample response
+    #
+    #   {
+    #     "USD" => 4109.92,
+    #     "ConversionType" => {
+    #       "type" => "direct",
+    #       "conversionSymbol" => ""
+    #     }
+    #   }
+    def self.day_avg(from_sym, to_sym, opts = {})
+      params = {
+        'from_sym' => from_sym,
+        'to_sym'   => to_sym,
+      }.merge!(opts)
+
+      full_path = QueryParamHelper.set_query_params(DAY_AVG_API_URL, params)
       api_resp = Faraday.get(full_path)
       JSON.parse(api_resp.body)
     end

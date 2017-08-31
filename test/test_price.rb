@@ -170,6 +170,62 @@ class TestPrice < Minitest::Test
     Cryptocompare::Price.generate_avg('BTC', 'USD', 'Coinbase', {'tc' => false})
   end
 
+  def test_price_day_avg
+    VCR.use_cassette('btc_to_usd_day_avg') do
+      expected_resp = {
+        "USD" => 4576.46,
+        "ConversionType" => {
+          "type" => "direct",
+          "conversionSymbol" => ""
+        }
+      }
+
+      day_avg_resp = Cryptocompare::Price.day_avg('BTC', 'USD')
+
+      assert day_avg_resp.kind_of?(Hash)
+      assert_equal expected_resp, day_avg_resp
+    end
+  end
+
+  def test_price_day_avg_using_exchange_option
+    VCR.use_cassette('btc_to_usd_day_avg_coinbase') do
+      expected_resp = {
+        "USD" => 4581.66,
+        "ConversionType" => {
+          "type" => "force_direct",
+          "conversionSymbol" => ""
+        }
+      }
+
+      day_avg_resp = Cryptocompare::Price.day_avg('BTC', 'USD', {'e' => 'Coinbase'})
+
+      assert day_avg_resp.kind_of?(Hash)
+      assert_equal 'force_direct', day_avg_resp['ConversionType']['type']
+      assert_equal expected_resp, day_avg_resp
+    end
+  end
+
+  def test_price_day_avg_using_tc_option
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/dayAvg?fsym=BTC&tsym=USD&tryConversion=false')
+      .to_return(:status => 200, :body => basic_day_avg_json_response)
+
+    Cryptocompare::Price.day_avg('BTC', 'USD', {'tc' => false})
+  end
+
+  def test_price_day_avg_using_to_ts_option
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/dayAvg?fsym=BTC&tsym=USD&toTs=1502514000')
+      .to_return(:status => 200, :body => basic_day_avg_json_response)
+
+    Cryptocompare::Price.day_avg('BTC', 'USD', {'to_ts' => 1502514000})
+  end
+
+  def test_price_day_avg_using_utc_offset_option
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/dayAvg?fsym=BTC&tsym=USD&UTCHourDiff=-8')
+      .to_return(:status => 200, :body => basic_day_avg_json_response)
+
+    Cryptocompare::Price.day_avg('BTC', 'USD', {'utc_offset' => -8})
+  end
+
   private
 
   def basic_generate_avg_json_response
@@ -212,5 +268,9 @@ class TestPrice < Minitest::Test
         "CHANGEPCT24HOUR" => "-0.23"
       }
     }.to_json
+  end
+
+  def basic_day_avg_json_response
+    '{"USD":4576.59,"ConversionType":{"type":"direct","conversionSymbol":""}}'
   end
 end

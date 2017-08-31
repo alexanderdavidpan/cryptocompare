@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&markets=Coinbase&tsym=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'false'
+      Date:
+      - Wed, 30 Aug 2017 23:13:38 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJSQVciOnsiTUFSS0VUIjoiQ1VTVE9NQUdHIiwiRlJPTVNZTUJPTCI6IkJUQyIsIlRPU1lNQk9MIjoiVVNEIiwiRkxBR1MiOjAsIlBSSUNFIjo0NTg4LjM3LCJMQVNUVVBEQVRFIjoxNTA0MTM0ODEyLCJMQVNUVk9MVU1FIjowLjAwMDAwMjE3LCJMQVNUVk9MVU1FVE8iOjAuMDA5OTU2NzYyODk5OTk5OTk5LCJMQVNUVFJBREVJRCI6MjAwMjg4NTAsIlZPTFVNRTI0SE9VUiI6OTkxNS4yNDA3NTg3NzAwMzUsIlZPTFVNRTI0SE9VUlRPIjo0NTQwNzY3NC4zNTYyMjUyNCwiT1BFTjI0SE9VUiI6NDU5OSwiSElHSDI0SE9VUiI6NDYzNS4yMSwiTE9XMjRIT1VSIjo0NTAwLjU1LCJMQVNUTUFSS0VUIjoiQ29pbmJhc2UiLCJDSEFOR0UyNEhPVVIiOi0xMC42MzAwMDAwMDAwMDAxMSwiQ0hBTkdFUENUMjRIT1VSIjotMC4yMzExMzcyMDM3Mzk5NDU4NH0sIkRJU1BMQVkiOnsiRlJPTVNZTUJPTCI6IsmDIiwiVE9TWU1CT0wiOiIkIiwiTUFSS0VUIjoiQ1VTVE9NQUdHIiwiUFJJQ0UiOiIkIDQsNTg4LjM3IiwiTEFTVFVQREFURSI6Ikp1c3Qgbm93IiwiTEFTVFZPTFVNRSI6IsmDIDAuMDAwMDAyMTciLCJMQVNUVk9MVU1FVE8iOiIkIDAuMDA5OTU3IiwiTEFTVFRSQURFSUQiOjIwMDI4ODUwLCJWT0xVTUUyNEhPVVIiOiLJgyA5LDkxNS4yNCIsIlZPTFVNRTI0SE9VUlRPIjoiJCA0NSw0MDcsNjc0LjQiLCJPUEVOMjRIT1VSIjoiJCA0LDU5OSIsIkhJR0gyNEhPVVIiOiIkIDQsNjM1LjIxIiwiTE9XMjRIT1VSIjoiJCA0LDUwMC41NSIsIkxBU1RNQVJLRVQiOiJDb2luYmFzZSIsIkNIQU5HRTI0SE9VUiI6IiQgLTEwLjYzIiwiQ0hBTkdFUENUMjRIT1VSIjoiLTAuMjMifX0=
+    http_version: 
+  recorded_at: Wed, 30 Aug 2017 23:13:38 GMT
+recorded_with: VCR 3.0.3

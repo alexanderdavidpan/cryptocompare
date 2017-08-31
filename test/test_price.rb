@@ -137,4 +137,80 @@ class TestPrice < Minitest::Test
       assert_equal expected_resp, price_resp
     end
   end
+
+  def test_price_generate_avg
+    VCR.use_cassette('btc_to_usd_generate_avg') do
+      expected_resp = JSON.parse(basic_generate_avg_json_response)
+
+      generate_avg_resp = Cryptocompare::Price.generate_avg('BTC', 'USD', 'Coinbase')
+
+      assert generate_avg_resp.kind_of?(Hash)
+      assert_equal expected_resp, generate_avg_resp
+    end
+  end
+
+  def test_price_generate_avg_using_markets_option_as_string_or_array_of_strings
+    # Markets as a String
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase')
+      .to_return(:status => 200, :body => basic_generate_avg_json_response)
+
+    Cryptocompare::Price.generate_avg('BTC', 'USD', 'Coinbase')
+
+    # Markets as an Array of strings
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase,Poloniex')
+      .to_return(:status => 200, :body => basic_generate_avg_json_response)
+
+    Cryptocompare::Price.generate_avg('BTC', 'USD', ['Coinbase', 'Poloniex'])
+  end
+
+  def test_price_generate_avg_using_tc_option
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase&tryConversion=false')
+      .to_return(:status => 200, :body => basic_generate_avg_json_response)
+
+    Cryptocompare::Price.generate_avg('BTC', 'USD', 'Coinbase', {'tc' => false})
+  end
+
+  private
+
+  def basic_generate_avg_json_response
+    {
+      "RAW" => {
+        "MARKET" => "CUSTOMAGG",
+        "FROMSYMBOL" => "BTC",
+        "TOSYMBOL" => "USD",
+        "FLAGS" => 0,
+        "PRICE" => 4588.37,
+        "LASTUPDATE" => 1504134812,
+        "LASTVOLUME" => 2.17e-06,
+        "LASTVOLUMETO" => 0.009956762899999999,
+        "LASTTRADEID" => 20028850,
+        "VOLUME24HOUR" => 9915.240758770035,
+        "VOLUME24HOURTO" => 45407674.35622524,
+        "OPEN24HOUR" => 4599,
+        "HIGH24HOUR" => 4635.21,
+        "LOW24HOUR" => 4500.55,
+        "LASTMARKET" => "Coinbase",
+        "CHANGE24HOUR" => -10.63000000000011,
+        "CHANGEPCT24HOUR" => -0.23113720373994584
+      },
+      "DISPLAY" => {
+        "FROMSYMBOL" => "Ƀ",
+        "TOSYMBOL" => "$",
+        "MARKET" => "CUSTOMAGG",
+        "PRICE" => "$ 4,588.37",
+        "LASTUPDATE" => "Just now",
+        "LASTVOLUME" => "Ƀ 0.00000217",
+        "LASTVOLUMETO" => "$ 0.009957",
+        "LASTTRADEID" => 20028850,
+        "VOLUME24HOUR" => "Ƀ 9,915.24",
+        "VOLUME24HOURTO" => "$ 45,407,674.4",
+        "OPEN24HOUR" => "$ 4,599",
+        "HIGH24HOUR" => "$ 4,635.21",
+        "LOW24HOUR" => "$ 4,500.55",
+        "LASTMARKET" => "Coinbase",
+        "CHANGE24HOUR" => "$ -10.63",
+        "CHANGEPCT24HOUR" => "-0.23"
+      }
+    }.to_json
+  end
 end

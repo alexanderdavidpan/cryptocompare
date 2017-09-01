@@ -122,6 +122,11 @@ class TestHistoDay < Minitest::Test
   private
 
   def basic_histo_day_json_response
-    '{"Response":"Success","Type":100,"Aggregated":false,"Data":[]}'
+    {
+      "Response" => "Success",
+      "Type" => 100,
+      "Aggregated" => false,
+      "Data" => []
+    }.to_json
   end
 end

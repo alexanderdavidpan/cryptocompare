@@ -271,6 +271,12 @@ class TestPrice < Minitest::Test
   end
 
   def basic_day_avg_json_response
-    '{"USD":4576.59,"ConversionType":{"type":"direct","conversionSymbol":""}}'
+    {
+      "USD" => 4576.59,
+      "ConversionType" => {
+        "type" => "direct",
+        "conversionSymbol" => ""
+      }
+    }.to_json
   end
 end

@@ -115,6 +115,11 @@ class TestHistoHour < Minitest::Test
   private
 
   def basic_histo_hour_json_response
-    '{"Response":"Success","Type":100,"Aggregated":false,"Data":[]}'
+    {
+      "Response" => "Success",
+      "Type" => 100,
+      "Aggregated" => false,
+      "Data" => []
+    }.to_json
   end
 end

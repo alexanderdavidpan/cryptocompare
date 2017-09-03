@@ -84,6 +84,51 @@ Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
 # => {"DASH"=>{"USD"=>152.4}}
 ```
 
+Generate average price for cryptocurrency to fiat currency.
+
+```ruby
+Cryptocompare::Price.generate_avg('BTC', 'USD', ['Coinbase', 'Bitfinex'])
+# => {
+#   RAW: {
+#     MARKET: "CUSTOMAGG",
+#     FROMSYMBOL: "BTC",
+#     TOSYMBOL: "USD",
+#     FLAGS: 0,
+#     PRICE: 4137.43,
+#     LASTUPDATE: 1503454563,
+#     LASTVOLUME: 2,
+#     LASTVOLUMETO: 8271.98,
+#     LASTTRADEID: 19656029,
+#     VOLUME24HOUR: 71728.71957884016,
+#     VOLUME24HOURTO: 279374718.3442189,
+#     OPEN24HOUR: 3885.85,
+#     HIGH24HOUR: 4145,
+#     LOW24HOUR: 3583.46,
+#     LASTMARKET: "Coinbase",
+#     CHANGE24HOUR: 251.58000000000038,
+#     CHANGEPCT24HOUR: 6.474259171095137
+#   },
+#   DISPLAY: {
+#     FROMSYMBOL: "Ƀ",
+#     TOSYMBOL: "$",
+#     MARKET: "CUSTOMAGG",
+#     PRICE: "$ 4,137.43",
+#     LASTUPDATE: "Just now",
+#     LASTVOLUME: "Ƀ 2",
+#     LASTVOLUMETO: "$ 8,271.98",
+#     LASTTRADEID: 19656029,
+#     VOLUME24HOUR: "Ƀ 71,728.7",
+#     VOLUME24HOURTO: "$ 279,374,718.3",
+#     OPEN24HOUR: "$ 3,885.85",
+#     HIGH24HOUR: "$ 4,145",
+#     LOW24HOUR: "$ 3,583.46",
+#     LASTMARKET: "Coinbase",
+#     CHANGE24HOUR: "$ 251.58",
+#     CHANGEPCT24HOUR: "6.47"
+#   }
+# }
+```
+
 ### PriceHistorical
 
 Finds the price of any cryptocurrency in any other currency that you need at a given timestamp. The price comes from the daily info - so it would be the price at the end of the day GMT based on the requested timestamp. If the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion. Tries to get direct trading pair data, if there is none or it is more than 30 days before the ts requested, it uses BTC conversion. If the opposite pair trades we invert it (eg.: BTC-XMR)

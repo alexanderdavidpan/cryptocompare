@@ -1,7 +1,7 @@
 # cryptocompare
 
 [![Gem Version](https://badge.fury.io/rb/cryptocompare.svg)](http://badge.fury.io/rb/cryptocompare) [![Build Status](https://travis-ci.org/alexanderdavidpan/cryptocompare.svg)](https://travis-ci.org/alexanderdavidpan/cryptocompare)
-
+[![Test Coverage](https://codeclimate.com/github/alexanderdavidpan/cryptocompare/badges/coverage.svg)](https://codeclimate.com/github/alexanderdavidpan/cryptocompare/coverage)
 
 This is a Ruby gem that utilizes the CryptoCompare API to fetch data related to cryptocurrencies.
 

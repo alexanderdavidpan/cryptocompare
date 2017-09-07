@@ -1,6 +1,50 @@
 require 'test_helper'
 
 class TestPrice < Minitest::Test
+  PRICE_FULL_RAW_KEYS = %w[
+    TYPE
+    MARKET
+    FROMSYMBOL
+    TOSYMBOL
+    FLAGS
+    PRICE
+    LASTUPDATE
+    LASTVOLUME
+    LASTVOLUMETO
+    LASTTRADEID
+    VOLUME24HOUR
+    VOLUME24HOURTO
+    OPEN24HOUR
+    HIGH24HOUR
+    LOW24HOUR
+    LASTMARKET
+    CHANGE24HOUR
+    CHANGEPCT24HOUR
+    SUPPLY
+    MKTCAP
+  ].freeze
+
+  PRICE_FULL_DISPLAY_KEYS = %w[
+    FROMSYMBOL
+    TOSYMBOL
+    MARKET
+    PRICE
+    LASTUPDATE
+    LASTVOLUME
+    LASTVOLUMETO
+    LASTTRADEID
+    VOLUME24HOUR
+    VOLUME24HOURTO
+    OPEN24HOUR
+    HIGH24HOUR
+    LOW24HOUR
+    LASTMARKET
+    CHANGE24HOUR
+    CHANGEPCT24HOUR
+    SUPPLY
+    MKTCAP
+  ].freeze
+
   def test_find_price_cryptocurrency_to_fiat
     VCR.use_cassette('btc_to_usd') do
       expected_resp = {
@@ -138,6 +182,51 @@ class TestPrice < Minitest::Test
     end
   end
 
+  def test_price_full
+    VCR.use_cassette('btc_to_usd_full') do
+      price_full_resp = Cryptocompare::Price.full('BTC', 'USD')
+
+      assert price_full_resp
+      assert price_full_resp.kind_of?(Hash)
+
+      raw_resp     = price_full_resp['RAW']
+      display_resp =  price_full_resp['DISPLAY']
+
+      assert raw_resp
+      assert raw_resp.kind_of?(Hash)
+      assert display_resp
+      assert display_resp.kind_of?(Hash)
+
+      assert_equal ['BTC'], raw_resp.keys
+      assert_equal ['BTC'], display_resp.keys
+
+      assert_equal ['USD'], raw_resp['BTC'].keys
+      assert_equal ['USD'], display_resp['BTC'].keys
+
+      assert_equal 'BTC', raw_resp['BTC']['USD']['FROMSYMBOL']
+      assert_equal 'USD', raw_resp['BTC']['USD']['TOSYMBOL']
+      assert_equal 'Ƀ', display_resp['BTC']['USD']['FROMSYMBOL']
+      assert_equal '$', display_resp['BTC']['USD']['TOSYMBOL']
+
+      assert_empty raw_resp['BTC']['USD'].keys - PRICE_FULL_RAW_KEYS
+      assert_empty display_resp['BTC']['USD'].keys - PRICE_FULL_DISPLAY_KEYS
+    end
+  end
+
+  def test_price_multi_full_using_e_option
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&e=Coinbase')
+      .to_return(:status => 200, :body => basic_price_full_json_response)
+
+    Cryptocompare::Price.full('BTC', 'USD', {'e' => 'Coinbase'})
+  end
+
+  def test_price_multi_full_using_tc_option
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&tryConversion=false')
+      .to_return(:status => 200, :body => basic_price_full_json_response)
+
+    Cryptocompare::Price.full('BTC', 'USD', {'tc' => false})
+  end
+
   def test_price_generate_avg
     VCR.use_cassette('btc_to_usd_generate_avg') do
       expected_resp = JSON.parse(basic_generate_avg_json_response)
@@ -227,6 +316,61 @@ class TestPrice < Minitest::Test
   end
 
   private
+
+  def basic_price_full_json_response
+    {
+      "RAW" => {
+        "BTC" => {
+          "USD" => {
+            "TYPE"=>"5",
+            "MARKET"=>"CCCAGG",
+            "FROMSYMBOL"=>"BTC",
+            "TOSYMBOL"=>"USD",
+            "FLAGS"=>"4",
+            "PRICE"=>4551.84,
+            "LASTUPDATE"=>1504753702,
+            "LASTVOLUME"=>2.19e-06,
+            "LASTVOLUMETO"=>0.00995355,
+            "LASTTRADEID"=>20466080,
+            "VOLUME24HOUR"=>110449.85666195827,
+            "VOLUME24HOURTO"=>503369392.8440719,
+            "OPEN24HOUR"=>4497.45,
+            "HIGH24HOUR"=>4667.51,
+            "LOW24HOUR"=>4386.51,
+            "LASTMARKET"=>"Coinbase",
+            "CHANGE24HOUR"=>54.39000000000033,
+            "CHANGEPCT24HOUR"=>1.2093519661141388,
+            "SUPPLY"=>16549137,
+            "MKTCAP"=>75329023762.08
+          }
+        }
+      },
+      "DISPLAY" => {
+        "BTC" => {
+          "USD" => {
+            "FROMSYMBOL"=>"Ƀ",
+            "TOSYMBOL"=>"$",
+            "MARKET"=>"CryptoCompare Index",
+            "PRICE"=>"$ 4,551.84",
+            "LASTUPDATE"=>"Just now",
+            "LASTVOLUME"=>"Ƀ 0.00000219",
+            "LASTVOLUMETO"=>"$ 0.009954",
+            "LASTTRADEID"=>20466080,
+            "VOLUME24HOUR"=>"Ƀ 110,449.9",
+            "VOLUME24HOURTO"=>"$ 503,369,392.8",
+            "OPEN24HOUR"=>"$ 4,497.45",
+            "HIGH24HOUR"=>"$ 4,667.51",
+            "LOW24HOUR"=>"$ 4,386.51",
+            "LASTMARKET"=>"Coinbase",
+            "CHANGE24HOUR"=>"$ 54.39",
+            "CHANGEPCT24HOUR"=>"1.21",
+            "SUPPLY"=>"Ƀ 16,549,137",
+            "MKTCAP"=>"$ 75.33 B"
+          }
+        }
+      }
+    }.to_json
+  end
 
   def basic_generate_avg_json_response
     {

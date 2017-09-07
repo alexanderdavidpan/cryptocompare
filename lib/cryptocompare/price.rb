@@ -4,6 +4,7 @@ require 'json'
 module Cryptocompare
   module Price
     PRICE_API_URL = 'https://min-api.cryptocompare.com/data/pricemulti'
+    PRICE_FULL_API_URL = 'https://min-api.cryptocompare.com/data/pricemultifull'
     GENERATE_AVG_API_URL = 'https://min-api.cryptocompare.com/data/generateAvg'
     DAY_AVG_API_URL = 'https://min-api.cryptocompare.com/data/dayAvg'
 
@@ -67,6 +68,38 @@ module Cryptocompare
       }.merge!(opts)
 
       full_path = QueryParamHelper.set_query_params(PRICE_API_URL, params)
+      api_resp = Faraday.get(full_path)
+      JSON.parse(api_resp.body)
+    end
+
+    # Get all the current trading info (price, vol, open, high, low etc) of any
+    # list of cryptocurrencies in any other currency that you need. If the
+    # crypto does not trade directly into the toSymbol requested, BTC will be
+    # used for conversion. This API also returns display values for all the
+    # fields. If the opposite pair trades we invert it (eg.: BTC-XMR).
+    #
+    # ==== Parameters
+    #
+    # * +from_sym+  [String, Array]     - (required) currency symbols (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
+    # * +to_sym+    [String, Array]     - (required) currency symbols (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
+    # * +opts+      [Hash]              - (optional) options hash
+    #
+    # ==== Options
+    #
+    # * +e+         [String]            - (optional) name of exchange (ex: 'Coinbase','Poloniex') Default: CCCAGG.
+    # * +tc+        [Boolean]           - (optional) try conversion. Default true. If the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion.
+    #
+    # ==== Returns
+    #
+    # ==== Examples
+    #
+    def self.full(from_syms, to_syms, opts = {})
+      params = {
+        'from_syms' => Array(from_syms).join(','),
+        'to_syms'   => Array(to_syms).join(','),
+      }.merge!(opts)
+
+      full_path = QueryParamHelper.set_query_params(PRICE_FULL_API_URL, params)
       api_resp = Faraday.get(full_path)
       JSON.parse(api_resp.body)
     end

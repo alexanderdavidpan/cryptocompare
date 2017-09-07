@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'true'
+      Date:
+      - Thu, 07 Sep 2017 03:19:46 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJSQVciOnsiQlRDIjp7IlVTRCI6eyJUWVBFIjoiNSIsIk1BUktFVCI6IkNDQ0FHRyIsIkZST01TWU1CT0wiOiJCVEMiLCJUT1NZTUJPTCI6IlVTRCIsIkZMQUdTIjoiNCIsIlBSSUNFIjo0NTYzLjg4LCJMQVNUVVBEQVRFIjoxNTA0NzU0MzcyLCJMQVNUVk9MVU1FIjowLjAwMDAwMjE5LCJMQVNUVk9MVU1FVE8iOjAuMDA5OTY2NTgwNSwiTEFTVFRSQURFSUQiOjIwNDY2MjYyLCJWT0xVTUUyNEhPVVIiOjExMDcwMi44NDA4MTQ3NjI5NSwiVk9MVU1FMjRIT1VSVE8iOjUwNDUyMDMxOC44ODAzMjAyNSwiT1BFTjI0SE9VUiI6NDQ5Ny40NSwiSElHSDI0SE9VUiI6NDY2Ny41NCwiTE9XMjRIT1VSIjo0Mzg2LjUyLCJMQVNUTUFSS0VUIjoiQ29pbmJhc2UiLCJDSEFOR0UyNEhPVVIiOjY2LjQzMDAwMDAwMDAwMDI5LCJDSEFOR0VQQ1QyNEhPVVIiOjEuNDc3MDU5MjIyNDQ4MjgyOCwiU1VQUExZIjoxNjU0OTEzNywiTUtUQ0FQIjo3NTUyODI3NTM3MS41Nn19fSwiRElTUExBWSI6eyJCVEMiOnsiVVNEIjp7IkZST01TWU1CT0wiOiLJgyIsIlRPU1lNQk9MIjoiJCIsIk1BUktFVCI6IkNyeXB0b0NvbXBhcmUgSW5kZXgiLCJQUklDRSI6IiQgNCw1NjMuODgiLCJMQVNUVVBEQVRFIjoiSnVzdCBub3ciLCJMQVNUVk9MVU1FIjoiyYMgMC4wMDAwMDIxOSIsIkxBU1RWT0xVTUVUTyI6IiQgMC4wMDk5NjciLCJMQVNUVFJBREVJRCI6MjA0NjYyNjIsIlZPTFVNRTI0SE9VUiI6IsmDIDExMCw3MDIuOCIsIlZPTFVNRTI0SE9VUlRPIjoiJCA1MDQsNTIwLDMxOC45IiwiT1BFTjI0SE9VUiI6IiQgNCw0OTcuNDUiLCJISUdIMjRIT1VSIjoiJCA0LDY2Ny41NCIsIkxPVzI0SE9VUiI6IiQgNCwzODYuNTIiLCJMQVNUTUFSS0VUIjoiQ29pbmJhc2UiLCJDSEFOR0UyNEhPVVIiOiIkIDY2LjQzIiwiQ0hBTkdFUENUMjRIT1VSIjoiMS40OCIsIlNVUFBMWSI6IsmDIDE2LDU0OSwxMzciLCJNS1RDQVAiOiIkIDc1LjUzIEIifX19fQ==
+    http_version: 
+  recorded_at: Thu, 07 Sep 2017 03:19:46 GMT
+recorded_with: VCR 3.0.3

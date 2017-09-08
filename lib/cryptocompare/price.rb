@@ -97,7 +97,7 @@ module Cryptocompare
     #
     # ==== Examples
     #
-    # Get full price info for cryptocurrency to fiat currency.
+    # Get full price info (raw and display) for cryptocurrency to fiat currency.
     #
     #   Cryptocompare::Price.full('BTC', 'USD')
     #

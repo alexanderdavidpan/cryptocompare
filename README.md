@@ -84,6 +84,63 @@ Cryptocompare::Price.find('DASH', 'USD', {'e' => 'Kraken'})
 # => {"DASH"=>{"USD"=>152.4}}
 ```
 
+Get full price info (raw and display) for cryptocurrency to fiat currency.
+```ruby
+Cryptocompare::Price.full('BTC', 'USD')
+# => {
+#   "RAW" => {
+#     "BTC" => {
+#       "USD" => {
+#         "TYPE"=>"5",
+#         "MARKET"=>"CCCAGG",
+#         "FROMSYMBOL"=>"BTC",
+#         "TOSYMBOL"=>"USD",
+#         "FLAGS"=>"4",
+#         "PRICE"=>4551.84,
+#         "LASTUPDATE"=>1504753702,
+#         "LASTVOLUME"=>2.19e-06,
+#         "LASTVOLUMETO"=>0.00995355,
+#         "LASTTRADEID"=>20466080,
+#         "VOLUME24HOUR"=>110449.85666195827,
+#         "VOLUME24HOURTO"=>503369392.8440719,
+#         "OPEN24HOUR"=>4497.45,
+#         "HIGH24HOUR"=>4667.51,
+#         "LOW24HOUR"=>4386.51,
+#         "LASTMARKET"=>"Coinbase",
+#         "CHANGE24HOUR"=>54.39000000000033,
+#         "CHANGEPCT24HOUR"=>1.2093519661141388,
+#         "SUPPLY"=>16549137,
+#         "MKTCAP"=>75329023762.08
+#       }
+#     }
+#   },
+#   "DISPLAY" => {
+#     "BTC" => {
+#       "USD" => {
+#         "FROMSYMBOL"=>"Ƀ",
+#         "TOSYMBOL"=>"$",
+#         "MARKET"=>"CryptoCompare Index",
+#         "PRICE"=>"$ 4,551.84",
+#         "LASTUPDATE"=>"Just now",
+#         "LASTVOLUME"=>"Ƀ 0.00000219",
+#         "LASTVOLUMETO"=>"$ 0.009954",
+#         "LASTTRADEID"=>20466080,
+#         "VOLUME24HOUR"=>"Ƀ 110,449.9",
+#         "VOLUME24HOURTO"=>"$ 503,369,392.8",
+#         "OPEN24HOUR"=>"$ 4,497.45",
+#         "HIGH24HOUR"=>"$ 4,667.51",
+#         "LOW24HOUR"=>"$ 4,386.51",
+#         "LASTMARKET"=>"Coinbase",
+#         "CHANGE24HOUR"=>"$ 54.39",
+#         "CHANGEPCT24HOUR"=>"1.21",
+#         "SUPPLY"=>"Ƀ 16,549,137",
+#         "MKTCAP"=>"$ 75.33 B"
+#       }
+#     }
+#   }
+# }
+```
+
 Generate average price for cryptocurrency to fiat currency.
 
 ```ruby

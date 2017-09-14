@@ -456,27 +456,27 @@ Cryptocompare::HistoDay.find('BTC', 'USD')
 
 ## Supported Exchanges
 
+* Bit2C
+* BitBay
+* Bitfinex
+* bitFlyer
+* bitFlyerFX
+* BitMarket
+* Bitso
+* BitSquare
+* Bitstamp
+* Bittrex
+* Bleutrade
 * BTC38
 * BTCC
 * BTCE
 * BTCMarkets
 * BTCXIndia
 * BTER
-* Bit2C
-* BitBay
-* bitFlyer
-* bitFlyerFX
-* BitMarket
-* BitSquare
-* Bitfinex
-* Bitso
-* Bitstamp
-* Bittrex
-* Bleutrade
 * CCEDK
 * Cexio
-* CoinCheck
 * Coinbase
+* CoinCheck
 * Coinfloor
 * Coinone
 * Coinse

@@ -456,11 +456,15 @@ Cryptocompare::HistoDay.find('BTC', 'USD')
 
 ## Supported Exchanges
 
+* ANXBTC
+* Binance
 * Bit2C
 * BitBay
+* BitcoinDE
 * Bitfinex
 * bitFlyer
 * bitFlyerFX
+* Bithumb
 * BitMarket
 * Bitso
 * BitSquare
@@ -468,28 +472,36 @@ Cryptocompare::HistoDay.find('BTC', 'USD')
 * Bittrex
 * Bleutrade
 * BTC38
-* BTCC
+* BTCChina
 * BTCE
 * BTCMarkets
+* btcXchange
 * BTCXIndia
 * BTER
 * CCEDK
+* CCEX
 * Cexio
+* CHBTC
 * Coinbase
 * CoinCheck
+* CoinExchange
 * Coinfloor
 * Coinone
+* Coinroom
 * Coinse
 * Coinsetter
 * Cryptopia
+* CryptoX
 * Cryptsy
 * EtherDelta
 * EthexIndia
+* Exmo
 * Gatecoin
 * Gemini
 * HitBTC
 * Huobi
 * itBit
+* Jubi
 * Korbit
 * Kraken
 * LakeBTC
@@ -497,20 +509,28 @@ Cryptocompare::HistoDay.find('BTC', 'USD')
 * LiveCoin
 * LocalBitcoins
 * Luno
+* Lykke
 * MercadoBitcoin
 * MonetaGo
+* MtGox
+* Novaexchange
 * OKCoin
 * Paymium
 * Poloniex
 * QuadrigaCX
 * Quoine
+* Remitano
 * TheRockTrading
 * Tidex
+* TuxExchange
 * Unocoin
 * Vaultoro
+* ViaBTC
+* WavesDEX
 * Yacuna
 * Yobit
 * Yunbi
+* Zaif
 
 If no exchange option is specified, then the default 'CCCAGG' is used. This is cryptocompare's aggregated data.
 

@@ -167,21 +167,6 @@ class TestPrice < Minitest::Test
     end
   end
 
-  def test_find_price_cryptocurrency_to_fiat_using_exchange_option_case_insensitive
-    VCR.use_cassette('eth_to_usd_coinbase') do
-      expected_resp = {
-        "ETH" => {
-          "USD" => 191.45
-        }
-      }
-
-      price_resp = Cryptocompare::Price.find('ETH', 'USD', {'e' => 'cOiNbAsE'})
-
-      assert price_resp.kind_of?(Hash)
-      assert_equal expected_resp, price_resp
-    end
-  end
-
   def test_price_full
     VCR.use_cassette('btc_to_usd_full') do
       price_full_resp = Cryptocompare::Price.full('BTC', 'USD')

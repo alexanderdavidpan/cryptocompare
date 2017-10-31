@@ -1,5 +1,4 @@
 require 'yaml'
-require_relative 'exchange_name_helper'
 
 # Helper module for setting query params.
 module Cryptocompare
@@ -14,7 +13,6 @@ module Cryptocompare
     # Helper method to parse parameters and build query parameters
     def self.to_query(opts)
       opts.collect do |key, value|
-        value = ExchangeNameHelper.set_exchange(value) if key == 'e'
         "#{QUERY_PARAM_MAPPING[key]}=#{value}"
       end.sort * '&'
     end

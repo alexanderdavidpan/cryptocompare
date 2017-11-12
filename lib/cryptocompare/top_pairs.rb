@@ -32,21 +32,21 @@ module Cryptocompare
     # Sample response
     #
     #   {
-    #     Response: "Success",
-    #     Data: [
+    #     "Response" => "Success",
+    #     "Data" => [
     #       {
-    #         exchange: "CCCAGG",
-    #         fromSymbol: "ETH",
-    #         toSymbol: "USD",
-    #         volume24h: 1310705.3005027298,
-    #         volume24hTo: 288031723.3503975
+    #         "exchange" => "CCCAGG",
+    #         "fromSymbol" => "ETH",
+    #         "toSymbol" => "USD",
+    #         "volume24h" => 1310705.3005027298,
+    #         "volume24hTo" => 288031723.3503975
     #       },
     #       {
-    #         exchange: "CCCAGG",
-    #         fromSymbol: "ETH",
-    #         toSymbol: "BTC",
-    #         volume24h: 978200.2198323006,
-    #         volume24hTo: 77883.06190085363
+    #         "exchange" => "CCCAGG",
+    #         "fromSymbol" => "ETH",
+    #         "toSymbol" => "BTC",
+    #         "volume24h" => 978200.2198323006,
+    #         "volume24hTo" => 77883.06190085363
     #       },
     #       ...
     #     ]

@@ -146,42 +146,42 @@ Generate average price for cryptocurrency to fiat currency.
 ```ruby
 Cryptocompare::Price.generate_avg('BTC', 'USD', ['Coinbase', 'Bitfinex'])
 # => {
-#   RAW: {
-#     MARKET: "CUSTOMAGG",
-#     FROMSYMBOL: "BTC",
-#     TOSYMBOL: "USD",
-#     FLAGS: 0,
-#     PRICE: 4137.43,
-#     LASTUPDATE: 1503454563,
-#     LASTVOLUME: 2,
-#     LASTVOLUMETO: 8271.98,
-#     LASTTRADEID: 19656029,
-#     VOLUME24HOUR: 71728.71957884016,
-#     VOLUME24HOURTO: 279374718.3442189,
-#     OPEN24HOUR: 3885.85,
-#     HIGH24HOUR: 4145,
-#     LOW24HOUR: 3583.46,
-#     LASTMARKET: "Coinbase",
-#     CHANGE24HOUR: 251.58000000000038,
-#     CHANGEPCT24HOUR: 6.474259171095137
+#   "RAW" => {
+#     "MARKET" => "CUSTOMAGG",
+#     "FROMSYMBOL" => "BTC",
+#     "TOSYMBOL" => "USD",
+#     "FLAGS" => 0,
+#     "PRICE" => 4137.43,
+#     "LASTUPDATE" => 1503454563,
+#     "LASTVOLUME" => 2,
+#     "LASTVOLUMETO" => 8271.98,
+#     "LASTTRADEID" => 19656029,
+#     "VOLUME24HOUR" => 71728.71957884016,
+#     "VOLUME24HOURTO" => 279374718.3442189,
+#     "OPEN24HOUR" => 3885.85,
+#     "HIGH24HOUR" => 4145,
+#     "LOW24HOUR" => 3583.46,
+#     "LASTMARKET" => "Coinbase",
+#     "CHANGE24HOUR" => 251.58000000000038,
+#     "CHANGEPCT24HOUR" => 6.474259171095137
 #   },
-#   DISPLAY: {
-#     FROMSYMBOL: "Ƀ",
-#     TOSYMBOL: "$",
-#     MARKET: "CUSTOMAGG",
-#     PRICE: "$ 4,137.43",
-#     LASTUPDATE: "Just now",
-#     LASTVOLUME: "Ƀ 2",
-#     LASTVOLUMETO: "$ 8,271.98",
-#     LASTTRADEID: 19656029,
-#     VOLUME24HOUR: "Ƀ 71,728.7",
-#     VOLUME24HOURTO: "$ 279,374,718.3",
-#     OPEN24HOUR: "$ 3,885.85",
-#     HIGH24HOUR: "$ 4,145",
-#     LOW24HOUR: "$ 3,583.46",
-#     LASTMARKET: "Coinbase",
-#     CHANGE24HOUR: "$ 251.58",
-#     CHANGEPCT24HOUR: "6.47"
+#   "DISPLAY" => {
+#     "FROMSYMBOL" => "Ƀ",
+#     "TOSYMBOL" => "$",
+#     "MARKET" => "CUSTOMAGG",
+#     "PRICE" => "$ 4,137.43",
+#     "LASTUPDATE" => "Just now",
+#     "LASTVOLUME" => "Ƀ 2",
+#     "LASTVOLUMETO" => "$ 8,271.98",
+#     "LASTTRADEID" => 19656029,
+#     "VOLUME24HOUR" => "Ƀ 71,728.7",
+#     "VOLUME24HOURTO" => "$ 279,374,718.3",
+#     "OPEN24HOUR" => "$ 3,885.85",
+#     "HIGH24HOUR" => "$ 4,145",
+#     "LOW24HOUR" => "$ 3,583.46",
+#     "LASTMARKET" => "Coinbase",
+#     "CHANGE24HOUR" => "$ 251.58",
+#     "CHANGEPCT24HOUR" => "6.47"
 #   }
 # }
 ```
@@ -356,21 +356,21 @@ Find top pairs by trading volume for a given currency.
 ```ruby
 Cryptocompare::TopPairs.find('ETH')
 # => {
-#   Response: "Success",
-#   Data: [
+#   "Response" => "Success",
+#   "Data" => [
 #     {
-#       exchange: "CCCAGG",
-#       fromSymbol: "ETH",
-#       toSymbol: "USD",
-#       volume24h: 1310705.3005027298,
-#       volume24hTo: 288031723.3503975
+#       "exchange" => "CCCAGG",
+#       "fromSymbol" => "ETH",
+#       "toSymbol" => "USD",
+#       "volume24h" => 1310705.3005027298,
+#       "volume24hTo" => 288031723.3503975
 #     },
 #     {
-#       exchange: "CCCAGG",
-#       fromSymbol: "ETH",
-#       toSymbol: "BTC",
-#       volume24h: 978200.2198323006,
-#       volume24hTo: 77883.06190085363
+#       "exchange" => "CCCAGG",
+#       "fromSymbol" => "ETH",
+#       "toSymbol" => "BTC",
+#       "volume24h" => 978200.2198323006,
+#       "volume24hTo" => 77883.06190085363
 #     },
 #     ...
 #   ]
@@ -388,36 +388,36 @@ Find historical data by minute for BTC to USD.
 ```ruby
 Cryptocompare::HistoMinute.find('BTC', 'USD')
 # => {
-#   Response: "Success",
-#   Type: 100,
-#   Aggregated: true,
-#   Data: [
+#   "Response" => "Success",
+#   "Type" => 100,
+#   "Aggregated" => true,
+#   "Data" => [
 #     {
-#       time: 1502259120,
-#       close: 3396.44,
-#       high: 3397.63,
-#       low: 3396.34,
-#       open: 3397.39,
-#       volumefrom: 98.2,
-#       volumeto: 335485
+#       "time" => 1502259120,
+#       "close" => 3396.44,
+#       "high" => 3397.63,
+#       "low" => 3396.34,
+#       "open" => 3397.39,
+#       "volumefrom" => 98.2,
+#       "volumeto" => 335485
 #     },
 #     {
-#       time: 1502259300,
-#       close: 3396.86,
-#       high: 3396.94,
-#       low: 3396.44,
-#       open: 3396.44,
-#       volumefrom: 16.581031,
-#       volumeto: 56637.869999999995
+#       "time" => 1502259300,
+#       "close" => 3396.86,
+#       "high" => 3396.94,
+#       "low" => 3396.44,
+#       "open" => 3396.44,
+#       "volumefrom" => 16.581031,
+#       "volumeto" => 56637.869999999995
 #     },
 #     ...
 #   ],
-#   TimeTo: 1502259360,
-#   TimeFrom: 1502259120,
-#   FirstValueInArray: true,
-#   ConversionType: {
-#     type: "direct",
-#     conversionSymbol: ""
+#   "TimeTo" => 1502259360,
+#   "TimeFrom" => 1502259120,
+#   "FirstValueInArray" => true,
+#   "ConversionType" => {
+#     "type" => "direct",
+#     "conversionSymbol" => ""
 #   }
 # }
 ```
@@ -433,36 +433,36 @@ Find historical data by hour for BTC to USD.
 ```ruby
 Cryptocompare::HistoHour.find('BTC', 'USD')
 # => {
-#   Response: "Success",
-#   Type: 100,
-#   Aggregated: false,
-#     Data: [
+#   "Response" => "Success",
+#   "Type" => 100,
+#   "Aggregated" => false,
+#     "Data" => [
 #     {
-#       time: 1502259120,
-#       close: 3396.44,
-#       high: 3397.63,
-#       low: 3396.34,
-#       open: 3397.39,
-#       volumefrom: 98.2,
-#       volumeto: 335485
+#       "time" => 1502259120,
+#       "close" => 3396.44,
+#       "high" => 3397.63,
+#       "low" => 3396.34,
+#       "open" => 3397.39,
+#       "volumefrom" => 98.2,
+#       "volumeto" => 335485
 #     },
 #     {
-#       time: 1502259300,
-#       close: 3396.86,
-#       high: 3396.94,
-#       low: 3396.44,
-#       open: 3396.44,
-#       volumefrom: 16.581031,
-#       volumeto: 56637.869999999995
+#       "time" => 1502259300,
+#       "close" => 3396.86,
+#       "high" => 3396.94,
+#       "low" => 3396.44,
+#       "open" => 3396.44,
+#       "volumefrom" => 16.581031,
+#       "volumeto" => 56637.869999999995
 #     },
 #     ...
 #   ],
-#   TimeTo: 1503248400,
-#   TimeFrom: 1502643600,
-#   FirstValueInArray: true,
-#   ConversionType: {
-#     type: "direct",
-#     conversionSymbol: ""
+#   "TimeTo" => 1503248400,
+#   "TimeFrom" => 1502643600,
+#   "FirstValueInArray" => true,
+#   "ConversionType" => {
+#     "type" => "direct",
+#     "conversionSymbol" => ""
 #   }
 # }
 ```
@@ -478,36 +478,36 @@ Find historical data by day for BTC to USD.
 ```ruby
 Cryptocompare::HistoDay.find('BTC', 'USD')
 # => {
-#   Response: "Success",
-#   Type: 100,
-#   Aggregated: false,
-#   Data: [
+#   "Response" => "Success",
+#   "Type" => 100,
+#   "Aggregated" => false,
+#   "Data" => [
 #     {
-#       time: 1500854400,
-#       close: 2763.42,
-#       high: 2798.89,
-#       low: 2715.69,
-#       open: 2756.61,
-#       volumefrom: 83009.25,
-#       volumeto: 229047365.02
+#       "time" => 1500854400,
+#       "close" => 2763.42,
+#       "high" => 2798.89,
+#       "low" => 2715.69,
+#       "open" => 2756.61,
+#       "volumefrom" => 83009.25,
+#       "volumeto" => 229047365.02
 #     },
 #     {
-#       time: 1500940800,
-#       close: 2582.58,
-#       high: 2779.08,
-#       low: 2472.62,
-#       open: 2763.42,
-#       volumefrom: 205883.15,
-#       volumeto: 534765380.75
+#       "time" => 1500940800,
+#       "close" => 2582.58,
+#       "high" => 2779.08,
+#       "low" => 2472.62,
+#       "open" => 2763.42,
+#       "volumefrom" => 205883.15,
+#       "volumeto" => 534765380.75
 #     },
 #     ...
 #   ],
-#   TimeTo: 1503446400,
-#   TimeFrom: 1500854400,
-#   FirstValueInArray: true,
-#   ConversionType: {
-#     type: "direct",
-#     conversionSymbol: ""
+#   "TimeTo" => 1503446400,
+#   "TimeFrom" => 1500854400,
+#   "FirstValueInArray" => true,
+#   "ConversionType" => {
+#     "type" => "direct",
+#     "conversionSymbol" => ""
 #   }
 # }
 ```

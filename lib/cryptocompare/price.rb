@@ -196,42 +196,42 @@ module Cryptocompare
     # Sample response
     #
     #   {
-    #     RAW: {
-    #       MARKET: "CUSTOMAGG",
-    #       FROMSYMBOL: "BTC",
-    #       TOSYMBOL: "USD",
-    #       FLAGS: 0,
-    #       PRICE: 4137.43,
-    #       LASTUPDATE: 1503454563,
-    #       LASTVOLUME: 2,
-    #       LASTVOLUMETO: 8271.98,
-    #       LASTTRADEID: 19656029,
-    #       VOLUME24HOUR: 71728.71957884016,
-    #       VOLUME24HOURTO: 279374718.3442189,
-    #       OPEN24HOUR: 3885.85,
-    #       HIGH24HOUR: 4145,
-    #       LOW24HOUR: 3583.46,
-    #       LASTMARKET: "Coinbase",
-    #       CHANGE24HOUR: 251.58000000000038,
-    #       CHANGEPCT24HOUR: 6.474259171095137
+    #     "RAW" => {
+    #       "MARKET" => "CUSTOMAGG",
+    #       "FROMSYMBOL" => "BTC",
+    #       "TOSYMBOL" => "USD",
+    #       "FLAGS" => 0,
+    #       "PRICE" => 4137.43,
+    #       "LASTUPDATE" => 1503454563,
+    #       "LASTVOLUME" => 2,
+    #       "LASTVOLUMETO" => 8271.98,
+    #       "LASTTRADEID" => 19656029,
+    #       "VOLUME24HOUR" => 71728.71957884016,
+    #       "VOLUME24HOURTO" => 279374718.3442189,
+    #       "OPEN24HOUR" => 3885.85,
+    #       "HIGH24HOUR" => 4145,
+    #       "LOW24HOUR" => 3583.46,
+    #       "LASTMARKET" => "Coinbase",
+    #       "CHANGE24HOUR" => 251.58000000000038,
+    #       "CHANGEPCT24HOUR" => 6.474259171095137
     #     },
-    #     DISPLAY: {
-    #       FROMSYMBOL: "Ƀ",
-    #       TOSYMBOL: "$",
-    #       MARKET: "CUSTOMAGG",
-    #       PRICE: "$ 4,137.43",
-    #       LASTUPDATE: "Just now",
-    #       LASTVOLUME: "Ƀ 2",
-    #       LASTVOLUMETO: "$ 8,271.98",
-    #       LASTTRADEID: 19656029,
-    #       VOLUME24HOUR: "Ƀ 71,728.7",
-    #       VOLUME24HOURTO: "$ 279,374,718.3",
-    #       OPEN24HOUR: "$ 3,885.85",
-    #       HIGH24HOUR: "$ 4,145",
-    #       LOW24HOUR: "$ 3,583.46",
-    #       LASTMARKET: "Coinbase",
-    #       CHANGE24HOUR: "$ 251.58",
-    #       CHANGEPCT24HOUR: "6.47"
+    #     "DISPLAY" => {
+    #       "FROMSYMBOL" => "Ƀ",
+    #       "TOSYMBOL" => "$",
+    #       "MARKET" => "CUSTOMAGG",
+    #       "PRICE" => "$ 4,137.43",
+    #       "LASTUPDATE" => "Just now",
+    #       "LASTVOLUME" => "Ƀ 2",
+    #       "LASTVOLUMETO" => "$ 8,271.98",
+    #       "LASTTRADEID" => 19656029,
+    #       "VOLUME24HOUR" => "Ƀ 71,728.7",
+    #       "VOLUME24HOURTO" => "$ 279,374,718.3",
+    #       "OPEN24HOUR" => "$ 3,885.85",
+    #       "HIGH24HOUR" => "$ 4,145",
+    #       "LOW24HOUR" => "$ 3,583.46",
+    #       "LASTMARKET" => "Coinbase",
+    #       "CHANGE24HOUR" => "$ 251.58",
+    #       "CHANGEPCT24HOUR" => "6.47"
     #     }
     #   }
     def self.generate_avg(from_sym, to_sym, markets, opts = {})

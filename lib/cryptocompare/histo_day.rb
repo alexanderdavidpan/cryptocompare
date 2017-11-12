@@ -37,36 +37,36 @@ module Cryptocompare
     # Sample response
     #
     #   {
-    #     Response: "Success",
-    #     Type: 100,
-    #     Aggregated: false,
-    #     Data: [
+    #     "Response" => "Success",
+    #     "Type" => 100,
+    #     "Aggregated" => false,
+    #     "Data" => [
     #       {
-    #         time: 1500854400,
-    #         close: 2763.42,
-    #         high: 2798.89,
-    #         low: 2715.69,
-    #         open: 2756.61,
-    #         volumefrom: 83009.25,
-    #         volumeto: 229047365.02
+    #         "time" => 1500854400,
+    #         "close" => 2763.42,
+    #         "high" => 2798.89,
+    #         "low" => 2715.69,
+    #         "open" => 2756.61,
+    #         "volumefrom" => 83009.25,
+    #         "volumeto" => 229047365.02
     #       },
     #       {
-    #         time: 1500940800,
-    #         close: 2582.58,
-    #         high: 2779.08,
-    #         low: 2472.62,
-    #         open: 2763.42,
-    #         volumefrom: 205883.15,
-    #         volumeto: 534765380.75
+    #         "time" => 1500940800,
+    #         "close" => 2582.58,
+    #         "high" => 2779.08,
+    #         "low" => 2472.62,
+    #         "open" => 2763.42,
+    #         "volumefrom" => 205883.15,
+    #         "volumeto" => 534765380.75
     #       },
     #       ...
     #     ],
-    #     TimeTo: 1503446400,
-    #     TimeFrom: 1500854400,
-    #     FirstValueInArray: true,
-    #     ConversionType: {
-    #       type: "direct",
-    #       conversionSymbol: ""
+    #     "TimeTo" => 1503446400,
+    #     "TimeFrom" => 1500854400,
+    #     "FirstValueInArray" => true,
+    #     "ConversionType" => {
+    #       "type" => "direct",
+    #       "conversionSymbol" => ""
     #     }
     #   }
     def self.find(from_sym, to_sym, opts = {})

@@ -225,20 +225,20 @@ class TestPrice < Minitest::Test
 
   def test_price_generate_avg_using_markets_option_as_string_or_array_of_strings
     # Markets as a String
-    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase')
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&e=Coinbase')
       .to_return(:status => 200, :body => basic_generate_avg_json_response)
 
     Cryptocompare::Price.generate_avg('BTC', 'USD', 'Coinbase')
 
     # Markets as an Array of strings
-    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase,Poloniex')
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&e=Coinbase,Poloniex')
       .to_return(:status => 200, :body => basic_generate_avg_json_response)
 
     Cryptocompare::Price.generate_avg('BTC', 'USD', ['Coinbase', 'Poloniex'])
   end
 
   def test_price_generate_avg_using_tc_option
-    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&markets=Coinbase&tryConversion=false')
+    stub_request(:get, 'https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&e=Coinbase&tryConversion=false')
       .to_return(:status => 200, :body => basic_generate_avg_json_response)
 
     Cryptocompare::Price.generate_avg('BTC', 'USD', 'Coinbase', {'tc' => false})
@@ -360,41 +360,45 @@ class TestPrice < Minitest::Test
   def basic_generate_avg_json_response
     {
       "RAW" => {
-        "MARKET" => "CUSTOMAGG",
-        "FROMSYMBOL" => "BTC",
-        "TOSYMBOL" => "USD",
-        "FLAGS" => 0,
-        "PRICE" => 4588.37,
-        "LASTUPDATE" => 1504134812,
-        "LASTVOLUME" => 2.17e-06,
-        "LASTVOLUMETO" => 0.009956762899999999,
-        "LASTTRADEID" => 20028850,
-        "VOLUME24HOUR" => 9915.240758770035,
-        "VOLUME24HOURTO" => 45407674.35622524,
-        "OPEN24HOUR" => 4599,
-        "HIGH24HOUR" => 4635.21,
-        "LOW24HOUR" => 4500.55,
-        "LASTMARKET" => "Coinbase",
-        "CHANGE24HOUR" => -10.63000000000011,
-        "CHANGEPCT24HOUR" => -0.23113720373994584
+        "MARKET"=>"CUSTOMAGG",
+        "FROMSYMBOL"=>"BTC",
+        "TOSYMBOL"=>"USD",
+        "FLAGS"=>0,
+        "PRICE"=>6515.83,
+        "LASTUPDATE"=>1510593868,
+        "LASTVOLUME"=>0.32048943,
+        "LASTVOLUMETO"=>2088.2546426769,
+        "LASTTRADEID"=>"24036877",
+        "VOLUME24HOUR"=>36885.10268221979,
+        "VOLUME24HOURTO"=>229156918.68158323,
+        "OPEN24HOUR"=>6085.22,
+        "HIGH24HOUR"=>6841.45,
+        "LOW24HOUR"=>5652.8,
+        "LASTMARKET"=>"Coinbase",
+        "CHANGE24HOUR"=>430.6099999999997,
+        "CHANGEPCT24HOUR"=>7.076325917551045,
+        "CHANGEDAY"=>0,
+        "CHANGEPCTDAY"=>0
       },
       "DISPLAY" => {
-        "FROMSYMBOL" => "Ƀ",
-        "TOSYMBOL" => "$",
-        "MARKET" => "CUSTOMAGG",
-        "PRICE" => "$ 4,588.37",
-        "LASTUPDATE" => "Just now",
-        "LASTVOLUME" => "Ƀ 0.00000217",
-        "LASTVOLUMETO" => "$ 0.009957",
-        "LASTTRADEID" => 20028850,
-        "VOLUME24HOUR" => "Ƀ 9,915.24",
-        "VOLUME24HOURTO" => "$ 45,407,674.4",
-        "OPEN24HOUR" => "$ 4,599",
-        "HIGH24HOUR" => "$ 4,635.21",
-        "LOW24HOUR" => "$ 4,500.55",
-        "LASTMARKET" => "Coinbase",
-        "CHANGE24HOUR" => "$ -10.63",
-        "CHANGEPCT24HOUR" => "-0.23"
+        "FROMSYMBOL"=>"Ƀ",
+        "TOSYMBOL"=>"$",
+        "MARKET"=>"CUSTOMAGG",
+        "PRICE"=>"$ 6,515.83",
+        "LASTUPDATE"=>"Just now",
+        "LASTVOLUME"=>"Ƀ 0.3205",
+        "LASTVOLUMETO"=>"$ 2,088.25",
+        "LASTTRADEID"=>"24036877",
+        "VOLUME24HOUR"=>"Ƀ 36,885.1",
+        "VOLUME24HOURTO"=>"$ 229,156,918.7",
+        "OPEN24HOUR"=>"$ 6,085.22",
+        "HIGH24HOUR"=>"$ 6,841.45",
+        "LOW24HOUR"=>"$ 5,652.80",
+        "LASTMARKET"=>"Coinbase",
+        "CHANGE24HOUR"=>"$ 430.61",
+        "CHANGEPCT24HOUR"=>"7.08",
+        "CHANGEDAY"=>"$ 0",
+        "CHANGEPCTDAY"=>"0"
       }
     }.to_json
   end

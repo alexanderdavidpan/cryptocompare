@@ -174,7 +174,7 @@ module Cryptocompare
     #
     # * +from_sym+  [String]        - (required) currency symbols  (ex: 'BTC', 'ETH', 'LTC', 'USD', 'EUR', 'CNY')
     # * +to_sym+    [String]        - (required) currency symbols  (ex: 'USD', 'EUR', 'CNY', 'USD', 'EUR', 'CNY')
-    # * +markets+   [String, Array] - (required) Name of exchanges. Supports multiple. (ex: 'Coinbase','Poloniex')
+    # * +e+         [String, Array] - (required) Name of exchanges. Supports multiple. (ex: 'Coinbase','Poloniex')
     # * +opts+      [Hash]          - (optional) options hash
     #
     # ==== Options
@@ -234,11 +234,11 @@ module Cryptocompare
     #       "CHANGEPCT24HOUR" => "6.47"
     #     }
     #   }
-    def self.generate_avg(from_sym, to_sym, markets, opts = {})
+    def self.generate_avg(from_sym, to_sym, e, opts = {})
       params = {
         'from_sym' => from_sym,
         'to_sym'   => to_sym,
-        'markets'  => Array(markets).join(',')
+        'e'        => Array(e).join(',')
       }.merge!(opts)
 
       full_path = QueryParamHelper.set_query_params(GENERATE_AVG_API_URL, params)

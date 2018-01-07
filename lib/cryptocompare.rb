@@ -1,6 +1,7 @@
 require_relative "cryptocompare/version"
 require_relative "cryptocompare/coin_list"
 require_relative "cryptocompare/coin_snapshot"
+require_relative "cryptocompare/exchanges"
 require_relative "cryptocompare/histo_day"
 require_relative "cryptocompare/histo_hour"
 require_relative "cryptocompare/histo_minute"

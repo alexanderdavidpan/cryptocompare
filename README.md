@@ -512,6 +512,43 @@ Cryptocompare::HistoDay.find('BTC', 'USD')
 # }
 ```
 
+### Exchanges
+Get exchange data, such as cryptocurrencies that each exchange offers, and the supported conversion cryptocurrencies.
+
+**Examples:**
+
+Get info for all exchanges.
+
+```ruby
+Cryptocompare::Exchanges.all
+# => {
+#   "Coinbase" => [
+#      {
+#         "LTC" => [
+#            "BTC",
+#            "USD",
+#            "EUR"
+#         ],
+#         "ETH" => [
+#            "BTC",
+#            "USD",
+#            "EUR"
+#         ],
+#         "BCH" => [
+#            "USD"
+#         ],
+#         "BTC" => [
+#            "USD",
+#            "GBP",
+#            "EUR",
+#            "CAD"
+#         ]
+#      },
+#   ],
+#   ...
+# }
+```
+
 ## Supported Exchanges
 
 * ANXBTC

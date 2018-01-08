@@ -551,6 +551,7 @@ Cryptocompare::Exchanges.all
 
 ## Supported Exchanges
 
+* Abucoins
 * ANXBTC
 * Binance
 * Bit2C
@@ -573,6 +574,7 @@ Cryptocompare::Exchanges.all
 * btcXchange
 * BTCXIndia
 * BTER
+* BXinth
 * CCEDK
 * CCEX
 * Cexio
@@ -591,14 +593,18 @@ Cryptocompare::Exchanges.all
 * EtherDelta
 * EthexIndia
 * Exmo
+* EXX
 * Gatecoin
+* Gateio
 * Gemini
 * HitBTC
 * Huobi
+* HuobiPro
 * itBit
 * Jubi
 * Korbit
 * Kraken
+* Kucoin
 * LakeBTC
 * Liqui
 * LiveCoin
@@ -610,6 +616,7 @@ Cryptocompare::Exchanges.all
 * MtGox
 * Novaexchange
 * OKCoin
+* OKEX
 * Paymium
 * Poloniex
 * QuadrigaCX
@@ -617,6 +624,7 @@ Cryptocompare::Exchanges.all
 * Remitano
 * TheRockTrading
 * Tidex
+* TrustDEX
 * TuxExchange
 * Unocoin
 * Vaultoro

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/news/providers
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.3
+      Date:
+      - Mon, 12 Mar 2018 06:45:19 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Cache-Control:
+      - public, max-age=29
+      Cryptocompare-Cache-Hit:
+      - 'true'
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"key":"cryptocompare","name":"CryptoCompare","lang":"EN","img":"https://images.cryptocompare.com/news/default/cryptocompare.png"},{"key":"coindesk","name":"CoinDesk","lang":"EN","img":"https://images.cryptocompare.com/news/default/coindesk.png"},{"key":"bitcoinmagazine","name":"Bitcoin
+        Magazine","lang":"EN","img":"https://images.cryptocompare.com/news/default/bitcoinmagazine.png"},{"key":"yahoofinance","name":"Yahoo
+        Finance Bitcoin","lang":"EN","img":"https://images.cryptocompare.com/news/default/yahoofinance.png"},{"key":"ccn","name":"CCN","lang":"EN","img":"https://images.cryptocompare.com/news/default/ccn.png"},{"key":"financemagnates","name":"Finance
+        Magnates","lang":"EN","img":"https://images.cryptocompare.com/news/default/financemagnates.png"},{"key":"espaciobit","name":"EspacioBit","lang":"PT","img":"https://images.cryptocompare.com/news/default/espaciobit.png"},{"key":"99bitcoins","name":"99bitcoins","lang":"EN","img":"https://images.cryptocompare.com/news/default/99bitcoins.png"},{"key":"bitcoinist","name":"Bitcoinist","lang":"EN","img":"https://images.cryptocompare.com/news/default/bitcoinist.png"},{"key":"bitcoin.com","name":"Bitcoin.com","lang":"EN","img":"https://images.cryptocompare.com/news/default/bitcoincom.png"},{"key":"ethnews.com","name":"ETHNews.com","lang":"EN","img":"https://images.cryptocompare.com/news/default/ethnews.png"},{"key":"cointelegraph","name":"CoinTelegraph","lang":"EN","img":"https://images.cryptocompare.com/news/default/cointelegraph.png"},{"key":"cryptoglobe","name":"CryptoGlobe","lang":"EN","img":"https://images.cryptocompare.com/news/default/cryptoglobe.png"},{"key":"cryptovest","name":"CryptoVest","lang":"EN","img":"https://images.cryptocompare.com/news/default/cryptovest.png"},{"key":"cryptoinsider","name":"CryptoInsider","lang":"EN","img":"https://images.cryptocompare.com/news/default/cryptoinsider.png"},{"key":"livebitcoinnews","name":"Live
+        Bitcoin News","lang":"EN","img":"https://images.cryptocompare.com/news/default/livebitcoinnews.png"},{"key":"newsbtc","name":"NewsBTC","lang":"EN","img":"https://images.cryptocompare.com/news/default/newsbtc.png"},{"key":"coinspeaker","name":"CoinSpeaker","lang":"EN","img":"https://images.cryptocompare.com/news/default/coinspeaker.png"},{"key":"coinjoker","name":"CoinJoker","lang":"EN","img":"https://images.cryptocompare.com/news/default/coinjoker.png"},{"key":"trustnodes","name":"TrustNodes","lang":"EN","img":"https://images.cryptocompare.com/news/default/trustnodes.png"},{"key":"themerkle","name":"TheMerkle","lang":"EN","img":"https://images.cryptocompare.com/news/default/themerkle.png"},{"key":"cryptocoremedia","name":"Crypto
+        CoreMedia","lang":"EN","img":"https://images.cryptocompare.com/news/default/coremedia.png"}]'
+    http_version: 
+  recorded_at: Mon, 12 Mar 2018 06:45:19 GMT
+recorded_with: VCR 3.0.3

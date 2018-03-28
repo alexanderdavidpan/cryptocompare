@@ -13,7 +13,7 @@ module Cryptocompare
     # Helper method to parse parameters and build query parameters
     def self.to_query(opts)
       opts.collect do |key, value|
-        "#{QUERY_PARAM_MAPPING[key]}=#{value}"
+        "#{QUERY_PARAM_MAPPING[key.to_s]}=#{value}"
       end.sort * '&'
     end
   end

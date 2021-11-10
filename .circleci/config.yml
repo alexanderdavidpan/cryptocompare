@@ -18,7 +18,9 @@ jobs:
       - ruby/install:
           version: '2.7'
       - run: echo "Ruby 2.7 has been installed"
-      - ruby/install-deps
+      - ruby/install-deps:
+          bundler-version: '2.2.31'
+          with-cache: false
       - run:
           command: 'bundle exec rake test'
           name: Run Tests

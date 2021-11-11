@@ -1,6 +1,6 @@
 # cryptocompare
 
-[![Gem Version](https://badge.fury.io/rb/cryptocompare.svg)](http://badge.fury.io/rb/cryptocompare) [![CircleCI](https://circleci.com/gh/alexanderdavidpan/cryptocompare.svg?style=svg)](https://circleci.com/gh/alexanderdavidpan/cryptocompare)
+[![Gem Version](https://badge.fury.io/rb/cryptocompare.svg)](http://badge.fury.io/rb/cryptocompare) [![CircleCI](https://circleci.com/gh/alexanderdavidpan/cryptocompare.svg?style=shield)](https://circleci.com/gh/alexanderdavidpan/cryptocompare)
 [![Test Coverage](https://codeclimate.com/github/alexanderdavidpan/cryptocompare/badges/coverage.svg)](https://codeclimate.com/github/alexanderdavidpan/cryptocompare/coverage)
 
 This is a Ruby gem that utilizes the CryptoCompare API to fetch data related to cryptocurrencies.

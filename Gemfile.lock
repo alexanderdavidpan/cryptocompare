@@ -1,0 +1,71 @@
+PATH
+  remote: .
+  specs:
+    cryptocompare (0.15.0)
+      faraday
+      json
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    codeclimate-test-reporter (1.0.9)
+      simplecov (<= 0.13)
+    crack (0.4.5)
+      rexml
+    docile (1.1.5)
+    faraday (1.8.0)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
+    hashdiff (1.0.1)
+    json (2.6.1)
+    minitest (5.14.4)
+    multipart-post (2.1.1)
+    public_suffix (4.0.6)
+    rake (13.0.6)
+    rexml (3.2.5)
+    ruby2_keywords (0.0.5)
+    simplecov (0.13.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
+    vcr (6.0.0)
+    webmock (3.14.0)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
+
+PLATFORMS
+  x86_64-darwin-19
+  x86_64-linux
+
+DEPENDENCIES
+  bundler (~> 2.2.0)
+  codeclimate-test-reporter (~> 1.0.0)
+  cryptocompare!
+  minitest (~> 5.0)
+  rake (>= 12.3.3)
+  simplecov
+  vcr
+  webmock
+
+BUNDLED WITH
+   2.2.31

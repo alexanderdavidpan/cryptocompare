@@ -7,6 +7,7 @@ class TestQueryParamHelper < Minitest::Test
     params = {
       'agg'       => 10,
       'all_data'  => true,
+      'api_key'   => 'API_KEY',
       'e'         => 'COINBASE',
       'from_sym'  => 'BTC',
       'from_syms' => 'BTC,ETH',
@@ -19,7 +20,7 @@ class TestQueryParamHelper < Minitest::Test
     }
 
     expected_path = "https://min-api.cryptocompare.com?aggregate=10" \
-    "&allData=true&e=COINBASE&fsym=BTC&fsyms=BTC,ETH&limit=10&toTs=1452680400" \
+    "&allData=true&api_key=API_KEY&e=COINBASE&fsym=BTC&fsyms=BTC,ETH&limit=10&toTs=1452680400" \
     "&tryConversion=false&ts=1452680400&tsym=USD&tsyms=USD,EUR"
 
     assert_equal expected_path, Cryptocompare::QueryParamHelper.set_query_params(api_url, params)

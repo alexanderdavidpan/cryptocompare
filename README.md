@@ -930,6 +930,15 @@ Cryptocompare::Exchanges.all
 
 If no exchange option is specified, then the default 'CCCAGG' is used. This is cryptocompare's aggregated data.
 
+### API Keys
+
+Some requests will require an API key. In order to obtain an API key, you will need to request one from Cryptocompare. You can then pass it in as an optional parameter in the any Cryptocompare module method like so:
+
+```ruby
+Cryptocompare::Price.find('ETH', 'USD', { api_key: 'API_KEY' })
+# => {"ETH"=>{"USD"=>4714.16}}
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

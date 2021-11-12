@@ -7,7 +7,7 @@ class TestQueryParamHelper < Minitest::Test
     params = {
       'agg'       => 10,
       'all_data'  => true,
-      'api_key'   => 'API_KEY'
+      'api_key'   => 'API_KEY',
       'e'         => 'COINBASE',
       'from_sym'  => 'BTC',
       'from_syms' => 'BTC,ETH',

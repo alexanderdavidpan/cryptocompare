@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cryptocompare (0.15.0)
+    cryptocompare (0.16.0)
       faraday
       json
 

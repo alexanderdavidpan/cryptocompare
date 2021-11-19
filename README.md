@@ -29,6 +29,15 @@ To use cryptocompare, just require it like so:
 require 'cryptocompare'
 ```
 
+### API Keys
+
+Some requests will require an API key. In order to obtain an API key, you will need to request one from Cryptocompare. You can then pass it in as an optional parameter in the any Cryptocompare module method like so:
+
+```ruby
+Cryptocompare::Price.find('ETH', 'USD', { api_key: 'API_KEY' })
+# => {"ETH"=>{"USD"=>4714.16}}
+```
+
 ### Price
 
 Finds the currency price(s) of a given currency symbol. Really fast, 20-60 ms. Cached each 10 seconds.
@@ -929,15 +938,6 @@ Cryptocompare::Exchanges.all
 * zloadr
 
 If no exchange option is specified, then the default 'CCCAGG' is used. This is cryptocompare's aggregated data.
-
-### API Keys
-
-Some requests will require an API key. In order to obtain an API key, you will need to request one from Cryptocompare. You can then pass it in as an optional parameter in the any Cryptocompare module method like so:
-
-```ruby
-Cryptocompare::Price.find('ETH', 'USD', { api_key: 'API_KEY' })
-# => {"ETH"=>{"USD"=>4714.16}}
-```
 
 ## Development
 

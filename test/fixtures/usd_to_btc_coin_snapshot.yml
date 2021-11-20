@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/data/top/exchanges/full?fsym=USD&tsym=BTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 20 Nov 2021 21:39:17 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Content-Security-Policy:
+      - frame-ancestors 'none'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type, Cookie, Set-Cookie, Authorization
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - public, max-age=120
+      X-Cryptocompare-Cache-Hit:
+      - 'false'
+      X-Cryptocompare-Server-Id:
+      - ccc-api46
+    body:
+      encoding: ASCII-8BIT
+      string: '{"Response":"Success","Message":"Total available exchanges - 1","Data":{"CoinInfo":{},"AggregatedData":{"TYPE":"5","MARKET":"CCCAGG","FROMSYMBOL":"USD","TOSYMBOL":"BTC","FLAGS":"0","PRICE":0.00059115,"LASTUPDATE":1566289537,"LASTVOLUME":0.4907055,"LASTVOLUMETO":0.00029008,"LASTTRADEID":"15572","VOLUMEDAY":0,"VOLUMEDAYTO":0,"VOLUME24HOUR":0,"VOLUME24HOURTO":0,"OPENDAY":3.5e-7,"HIGHDAY":0.00059115,"LOWDAY":3.5e-7,"OPEN24HOUR":0.00059115,"HIGH24HOUR":0.00059115,"LOW24HOUR":0.00059115,"LASTMARKET":"Poloniex","VOLUMEHOUR":0,"VOLUMEHOURTO":0,"OPENHOUR":3.5e-7,"HIGHHOUR":0.00059115,"LOWHOUR":3.5e-7,"TOPTIERVOLUME24HOUR":0,"TOPTIERVOLUME24HOURTO":0,"CHANGE24HOUR":0,"CHANGEPCT24HOUR":0,"CHANGEDAY":0.0005908,"CHANGEPCTDAY":168800.00000000003,"CHANGEHOUR":0.0005908,"CHANGEPCTHOUR":168800.00000000003},"Exchanges":[{"TYPE":"2","MARKET":"crex24","FROMSYMBOL":"USD","TOSYMBOL":"BTC","FLAGS":"2","PRICE":8308,"LASTUPDATE":1559310475,"LASTVOLUME":0.0029,"LASTVOLUMETO":24.0932,"LASTTRADEID":"18433888","VOLUMEDAY":0,"VOLUMEDAYTO":0,"VOLUME24HOUR":0,"VOLUME24HOURTO":0,"OPENDAY":8308,"HIGHDAY":8308,"LOWDAY":8308,"OPEN24HOUR":8308,"HIGH24HOUR":8308,"LOW24HOUR":8308,"VOLUMEHOUR":0,"VOLUMEHOURTO":0,"OPENHOUR":8308,"HIGHHOUR":8308,"LOWHOUR":8308,"CHANGE24HOUR":0,"CHANGEPCT24HOUR":0,"CHANGEDAY":0,"CHANGEPCTDAY":0,"CHANGEHOUR":0,"CHANGEPCTHOUR":0}]},"RateLimit":{},"HasWarning":false,"Type":100}'
+  recorded_at: Sat, 20 Nov 2021 21:39:17 GMT
+recorded_with: VCR 6.0.0

@@ -10,6 +10,7 @@ require_relative "cryptocompare/price"
 require_relative "cryptocompare/price_historical"
 require_relative "cryptocompare/helpers/query_param_helper"
 require_relative "cryptocompare/top_pairs"
+require_relative "cryptocompare/stats"
 
 module Cryptocompare
 end

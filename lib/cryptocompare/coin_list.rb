@@ -3,7 +3,8 @@ require 'json'
 
 module Cryptocompare
   module CoinList
-    API_URL = 'https://min-api.cryptocompare.com/data/all/coinlist'
+    API_URL = 'https://min-api.cryptocompare.com/data/all/coinlist'.freeze
+    private_constant :API_URL
 
     # Get general info for all the coins available on Cryptocompare's API.
     #

@@ -3,7 +3,8 @@ require 'json'
 
 module Cryptocompare
   module HistoMinute
-    API_URL = 'https://min-api.cryptocompare.com/data/histominute'
+    API_URL = 'https://min-api.cryptocompare.com/data/histominute'.freeze
+    private_constant :API_URL
 
     # Get open, high, low, close, volumefrom and volumeto for each minute of
     # historical data. This data is only stored for 7 days, if you need more,

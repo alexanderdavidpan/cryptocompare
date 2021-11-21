@@ -303,7 +303,7 @@ Get data for a currency pair. It returns general block explorer information, agg
 Cryptocompare::CoinSnapshot.find('BTC', 'USD')
 # => {
 #     "Response":"Success",
-#     "Message":"Coin snapshot succesfully returned",
+#     "Message":"Total available exchanges - 107",
 #     "Type":100,
 #     "Data":{
 #       "Algorithm":"SHA256",

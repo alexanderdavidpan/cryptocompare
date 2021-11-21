@@ -5,10 +5,13 @@ module Cryptocompare
   module Price
     PRICE_API_URL = 'https://min-api.cryptocompare.com/data/pricemulti'.freeze
     private_constant :PRICE_API_URL
+
     PRICE_FULL_API_URL = 'https://min-api.cryptocompare.com/data/pricemultifull'.freeze
     private_constant :PRICE_FULL_API_URL
+
     GENERATE_AVG_API_URL = 'https://min-api.cryptocompare.com/data/generateAvg'.freeze
     private_constant :GENERATE_AVG_API_URL
+
     DAY_AVG_API_URL = 'https://min-api.cryptocompare.com/data/dayAvg'.freeze
     private_constant :DAY_AVG_API_URL
 

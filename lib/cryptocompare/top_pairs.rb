@@ -3,7 +3,8 @@ require 'json'
 
 module Cryptocompare
   module TopPairs
-    API_URL = 'https://min-api.cryptocompare.com/data/top/pairs'
+    API_URL = 'https://min-api.cryptocompare.com/data/top/pairs'.freeze
+    private_constant :API_URL
 
     # Get top pairs by volume for a currency (always uses aggregated data).
     # The number of pairs you get is the minimum of the limit you set

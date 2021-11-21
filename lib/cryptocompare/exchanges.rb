@@ -3,7 +3,8 @@ require 'json'
 
 module Cryptocompare
   module Exchanges
-    API_URL = 'https://min-api.cryptocompare.com/data/all/exchanges'
+    API_URL = 'https://min-api.cryptocompare.com/data/all/exchanges'.freeze
+    private_constant :API_URL
 
     # Get exchange data, such as cryptocurrencies that each exchange offers, and
     # the supported conversion cryptocurrencies.

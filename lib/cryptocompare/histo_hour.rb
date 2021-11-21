@@ -3,7 +3,8 @@ require 'json'
 
 module Cryptocompare
   module HistoHour
-    API_URL = 'https://min-api.cryptocompare.com/data/histohour'
+    API_URL = 'https://min-api.cryptocompare.com/data/histohour'.freeze
+    private_constant :API_URL
 
     # Get open, high, low, close, volumefrom and volumeto from the each hour
     # historical data. It uses BTC conversion if data is not available because

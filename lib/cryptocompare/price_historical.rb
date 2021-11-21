@@ -3,7 +3,8 @@ require 'json'
 
 module Cryptocompare
   module PriceHistorical
-    API_URL = 'https://min-api.cryptocompare.com/data/pricehistorical'
+    API_URL = 'https://min-api.cryptocompare.com/data/pricehistorical'.freeze
+    private_constant :API_URL
 
     # Finds the price of any cryptocurrency in any other currency that you need
     # at a given timestamp. The price comes from the daily info - so it would be

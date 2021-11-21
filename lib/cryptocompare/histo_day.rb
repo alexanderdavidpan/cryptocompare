@@ -3,7 +3,8 @@ require 'json'
 
 module Cryptocompare
   module HistoDay
-    API_URL = 'https://min-api.cryptocompare.com/data/histoday'
+    API_URL = 'https://min-api.cryptocompare.com/data/histoday'.freeze
+    private_constant :API_URL
 
     # Get open, high, low, close, volumefrom and volumeto daily historical data.
     # The values are based on 00:00 GMT time. It uses BTC conversion if data is

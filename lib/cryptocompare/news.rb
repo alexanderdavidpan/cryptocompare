@@ -3,8 +3,11 @@ require 'json'
 
 module Cryptocompare
   module News
-    NEWS_API_URL = 'https://min-api.cryptocompare.com/data/news/'
-    NEWS_PROVIDERS_API_URL = 'https://min-api.cryptocompare.com/data/news/providers'
+    NEWS_API_URL = 'https://min-api.cryptocompare.com/data/news/'.freeze
+    private_constant :NEWS_API_URL
+
+    NEWS_PROVIDERS_API_URL = 'https://min-api.cryptocompare.com/data/news/providers'.freeze
+    private_constant :NEWS_PROVIDERS_API_URL
 
     # Returns news articles from the providers that CryptoCompare has integrated
     # with.

@@ -3,7 +3,7 @@ require 'json'
 
 module Cryptocompare
   module CoinSnapshot
-    API_URL = 'https://www.cryptocompare.com/api/data/coinsnapshot/'
+    API_URL = 'https://min-api.cryptocompare.com/data/top/exchanges/full'
 
     # Get data for a currency pair. It returns general block explorer
     # information, aggregated data and individual data for each exchange

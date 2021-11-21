@@ -2,12 +2,7 @@ require 'test_helper'
 
 class TestCoinSnapshot < Minitest::Test
   CRYPTOCURRENCY_DATA_KEYS = %w[
-    Algorithm
-    ProofType
-    BlockNumber
-    NetHashesPerSecond
-    TotalCoinsMined
-    BlockReward
+    CoinInfo
     AggregatedData
     Exchanges
   ].freeze
@@ -59,8 +54,7 @@ class TestCoinSnapshot < Minitest::Test
       resp = Cryptocompare::CoinSnapshot.find('BTC', 'USD')
 
       assert_equal 'Success', resp['Response']
-      assert_equal 'Coin snapshot succesfully returned', resp['Message']
-
+      assert resp['Message'].match('Total available exchanges')
       CRYPTOCURRENCY_DATA_KEYS.each do |data_key|
         assert resp['Data'].has_key?(data_key)
       end
@@ -82,7 +76,7 @@ class TestCoinSnapshot < Minitest::Test
       resp = Cryptocompare::CoinSnapshot.find('ETH', 'BTC')
 
       assert_equal 'Success', resp['Response']
-      assert_equal 'Coin snapshot succesfully returned', resp['Message']
+      assert resp['Message'].match('Total available exchanges')
 
       CRYPTOCURRENCY_DATA_KEYS.each do |data_key|
         assert resp['Data'].has_key?(data_key)
@@ -101,11 +95,11 @@ class TestCoinSnapshot < Minitest::Test
   end
 
   def test_find_coin_snapshot_fiat_to_cryptocurrency
-    VCR.use_cassette('usd_to_eth_coin_snapshot') do
-      resp = Cryptocompare::CoinSnapshot.find('USD', 'ETH')
+    VCR.use_cassette('usd_to_btc_coin_snapshot') do
+      resp = Cryptocompare::CoinSnapshot.find('USD', 'BTC')
 
       assert_equal 'Success', resp['Response']
-      assert_equal 'Coin snapshot succesfully returned', resp['Message']
+      assert resp['Message'].match('Total available exchanges')
 
       FIAT_DATA_KEYS.each do |data_key|
         assert resp['Data'].has_key?(data_key)
@@ -128,7 +122,7 @@ class TestCoinSnapshot < Minitest::Test
       resp = Cryptocompare::CoinSnapshot.find('EUR', 'USD')
 
       assert_equal 'Success', resp['Response']
-      assert_equal 'Coin snapshot succesfully returned', resp['Message']
+      assert resp['Message'].match('Total available exchanges')
 
       FIAT_DATA_KEYS.each do |data_key|
         assert resp['Data'].has_key?(data_key)

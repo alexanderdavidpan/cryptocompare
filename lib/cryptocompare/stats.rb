@@ -20,7 +20,29 @@ module Cryptocompare
     #
     # Sample response
     #
-    # TODO
+    # {
+    #   "Response" => "Success",
+    #   "Message" => "",
+    #   "HasWarning" => false,
+    #   "Type" => 100,
+    #   "RateLimit" => {},
+    #   "Data" => {
+    #     "calls_made" => {
+    #       "second" => 1,
+    #       "minute" => 2,
+    #       "hour" => 2,
+    #       "day" => 2,
+    #       "month" => 33
+    #     },
+    #     "calls_left" => {
+    #       "second" => 19,
+    #       "minute" => 298,
+    #       "hour" => 2998,
+    #       "day" => 7498,
+    #       "month" => 49967
+    #     }
+    #   }
+    # }
     def self.rate_limit
       api_resp = Faraday.get(API_URL)
       JSON.parse(api_resp.body)

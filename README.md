@@ -984,6 +984,41 @@ Cryptocompare::Exchanges.all
 
 If no exchange option is specified, then the default 'CCCAGG' is used. This is cryptocompare's aggregated data.
 
+### Stats
+
+Get stats such as rate limit.
+
+**Examples:**
+
+Find out how many calls you have left in the current month, day, hour, minute and second.
+
+```ruby
+Cryptocompare::Stats.rate_limit
+# => {
+#   "Response" => "Success",
+#   "Message" => "",
+#   "HasWarning" => false,
+#   "Type" => 100,
+#   "RateLimit" => {},
+#   "Data" => {
+#     "calls_made" => {
+#       "second" => 1,
+#       "minute" => 2,
+#       "hour" => 2,
+#       "day" => 2,
+#       "month" => 33
+#     },
+#     "calls_left" => {
+#       "second" => 19,
+#       "minute" => 298,
+#       "hour" => 2998,
+#       "day" => 7498,
+#       "month" => 49967
+#     }
+#   }
+# }
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://min-api.cryptocompare.com/stats/rate/limit
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 25 Nov 2021 06:45:13 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Content-Security-Policy:
+      - frame-ancestors 'none'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type, Cookie, Set-Cookie, Authorization
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - no-cache, no-store
+      X-Cryptocompare-Cache-Hit:
+      - 'false'
+      X-Cryptocompare-Server-Id:
+      - ccc-api41
+    body:
+      encoding: ASCII-8BIT
+      string: '{"Response":"Success","Message":"","HasWarning":false,"Type":100,"RateLimit":{},"Data":{"calls_made":{"second":1,"minute":1,"hour":7,"day":7,"month":38},"calls_left":{"second":19,"minute":299,"hour":2993,"day":7493,"month":49962}}}'
+  recorded_at: Thu, 25 Nov 2021 06:45:13 GMT
+recorded_with: VCR 6.0.0

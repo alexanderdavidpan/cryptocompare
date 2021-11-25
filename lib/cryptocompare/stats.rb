@@ -3,8 +3,8 @@ require 'json'
 
 module Cryptocompare
   module Stats
-    API_URL = 'https://min-api.cryptocompare.com/stats/rate/limit'.freeze
-    private_constant :API_URL
+    RATE_LIMIT_API_URL = 'https://min-api.cryptocompare.com/stats/rate/limit'.freeze
+    private_constant :RATE_LIMIT_API_URL
 
     # Find out how many calls you have left in the current month, day, hour, minute and second
     #
@@ -44,7 +44,7 @@ module Cryptocompare
     #   }
     # }
     def self.rate_limit
-      api_resp = Faraday.get(API_URL)
+      api_resp = Faraday.get(RATE_LIMIT_API_URL)
       JSON.parse(api_resp.body)
     end
   end
